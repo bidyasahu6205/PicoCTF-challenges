@@ -3,6 +3,8 @@ AUTHOR: SYREAL
 Description
 Python scripts are invoked kind of like programs in the Terminal... Can you run this Python script using this password to get the flag?
 
+_________________________________________________________________________________________________________________________________________________________________
+
 bidya_sahu-picoctf@webshell:~$ wget https://mercury.picoctf.net/static/8e33ede04d02f3765b8c6a6e24d72733/ende.py
 --2024-04-23 10:31:52--  https://mercury.picoctf.net/static/8e33ede04d02f3765b8c6a6e24d72733/ende.py
 Resolving mercury.picoctf.net (mercury.picoctf.net)... 18.189.209.142
@@ -49,3 +51,67 @@ aa821c16aa821c16aa821c16aa821c16
 bidya_sahu-picoctf@webshell:~$ python ende.py -d flag.txt.en
 Please enter the password:aa821c16aa821c16aa821c16aa821c16
 picoCTF{4p0110_1n_7h3_h0us3_aa821c16}
+____________________________________________________________________________________________________________________________________________________________
+
+i. First we downloaded all the files with wget command .
+ii.Then we lists all the files
+iii.Now we use the command
+                      chmod +x file_name
+to give permission to the python file to run.
+we know its a python script as it have a python extention
+iv.then we run the code with the command according to the script
+you can see how the python script works by opening it with an inbuild application of linux called nano
+                      nano file_name
+to exit nano application click  -  ctrl+x   
+here to run this python script
+python file_name <options>
+python is used to run a python script file and we can use some other option according to the type of python script.
+here -d is used to decrypt an encrypted file flag.txt.en 
+we had to use this extra option because the python script provided here is used to encrypt or decrypt a file given to it 
+
+__________________________________________________________________________________________________________________________________________________________
+
+####       ende.py script      ####
+import sys
+import base64
+from cryptography.fernet import Fernet
+# above 3 lines imports packets and classes. if you want to know more you can read about it on internet.
+usage_msg = "Usage: "+ sys.argv[0] +" (-e/-d) [file]"
+help_msg = usage_msg + "\n" +\
+        "Examples:\n" +\
+        "  To decrypt a file named 'pole.txt', do: " +\
+        "'$ python "+ sys.argv[0] +" -d pole.txt'\n"
+# we are just initializing 2 string variables if the syntax of the command is incomplete either of them will be printed
+if len(sys.argv) < 2 or len(sys.argv) > 4: 
+    print(usage_msg)
+    sys.exit(1)
+if sys.argv[1] == "-e":
+    if len(sys.argv) < 4:
+        sim_sala_bim = input("Please enter the password:")
+    else:
+        sim_sala_bim = sys.argv[3]
+    ssb_b64 = base64.b64encode(sim_sala_bim.encode())
+    c = Fernet(ssb_b64)
+
+    with open(sys.argv[2], "rb") as f:
+        data = f.read()
+        data_c = c.encrypt(data)
+        sys.stdout.write(data_c.decode())
+elif sys.argv[1] == "-d":
+    if len(sys.argv) < 4:
+        sim_sala_bim = input("Please enter the password:")
+    else:
+        sim_sala_bim = sys.argv[3]
+    ssb_b64 = base64.b64encode(sim_sala_bim.encode())
+    c = Fernet(ssb_b64)
+    with open(sys.argv[2], "r") as f:
+        data = f.read()
+        data_c = c.decrypt(data.encode())
+        sys.stdout.buffer.write(data_c)
+elif sys.argv[1] == "-h" or sys.argv[1] == "--help":
+    print(help_msg)
+    sys.exit(1)
+else:
+    print("Unrecognized first argument: "+ sys.argv[1])
+    print("Please use '-e', '-d', or '-h'.")
+
