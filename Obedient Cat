@@ -1,0 +1,38 @@
+Obedient Cat
+General skills 
+- picoCTF have its own shell ,click on the webshell and login with your account credentials
+
+Description
+This file has a flag in plain sight (aka "in-the-clear"). Download flag.
+
+Now we want to find the flag in the document through webshell 
+i. We will download the document first.
+
+wget file_url
+
+# else we can use another way 
+
+curl -O file_url
+
+ii. We will see if the file is downloaded or not for that we can use a command to see all the files available in that directory
+
+ls
+
+# this will list all the files present
+
+iii. Then we will see whats inside the document here we will use cat command
+
+cat file_name
+
+it will print the content of the file
+
+
+bidya_sahu-picoctf@webshell:~$ curl -O https://mercury.picoctf.net/static/217686fc11d733b80be62dcfcfca6c75/flag
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    34  100    34    0     0     72      0 --:--:-- --:--:-- --:--:--    72
+bidya_sahu-picoctf@webshell:~$ ls
+README.txt  a.out  flag  ltdis.sh  strings  tutorial  warm
+bidya_sahu-picoctf@webshell:~$ cat flag
+picoCTF{s4n1ty_v3r1f13d_b5aeb3dd}
+
