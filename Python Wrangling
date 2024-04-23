@@ -81,37 +81,47 @@ help_msg = usage_msg + "\n" +\
         "Examples:\n" +\
         "  To decrypt a file named 'pole.txt', do: " +\
         "'$ python "+ sys.argv[0] +" -d pole.txt'\n"
-# we are just initializing 2 string variables if the syntax of the command is incomplete either of them will be printed
+# we are just initializing 2 string variables if the syntax of the command is incomplete either of them will be printed.
 if len(sys.argv) < 2 or len(sys.argv) > 4: 
     print(usage_msg)
     sys.exit(1)
+# this if block prints the usage message when number of arguments is less or more then the requirement.
 if sys.argv[1] == "-e":
     if len(sys.argv) < 4:
         sim_sala_bim = input("Please enter the password:")
     else:
         sim_sala_bim = sys.argv[3]
+# this if blocks evecutes when there is an -e in the arguments passed .inside it another if condion is checked if the command has less then 4 argument it asks for a password else it takes the 4th argument to be the password
     ssb_b64 = base64.b64encode(sim_sala_bim.encode())
     c = Fernet(ssb_b64)
+#it encrypts the 4th argument present in the command
 
     with open(sys.argv[2], "rb") as f:
         data = f.read()
         data_c = c.encrypt(data)
         sys.stdout.write(data_c.decode())
+#opens the file passed and encrypt the data
 elif sys.argv[1] == "-d":
+#executed if there present a -d option
     if len(sys.argv) < 4:
         sim_sala_bim = input("Please enter the password:")
+# it check if no. of argument passed <4 then asks for password to decrypt
     else:
         sim_sala_bim = sys.argv[3]
+#takes the 4th argument as the password
     ssb_b64 = base64.b64encode(sim_sala_bim.encode())
     c = Fernet(ssb_b64)
     with open(sys.argv[2], "r") as f:
         data = f.read()
         data_c = c.decrypt(data.encode())
         sys.stdout.buffer.write(data_c)
+#use the password to decrypt the data in the file and print it out
 elif sys.argv[1] == "-h" or sys.argv[1] == "--help":
     print(help_msg)
     sys.exit(1)
+# executes when -h is present in the argument and print the help message and terminates the script
 else:
     print("Unrecognized first argument: "+ sys.argv[1])
     print("Please use '-e', '-d', or '-h'.")
+# if it cant recognize anything it prints " use -h -e -d " alog with erroe message
 
