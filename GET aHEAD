@@ -1,0 +1,43 @@
+Description
+Find the flag being held on this server to get ahead of the competition http://mercury.picoctf.net:2
+hint - Maybe you have more than 2 choices
+     - Check out tools like Burpsuite to modify your requests and look at the responses
+
+open burpsuite 
+proxy>intercept>intersept on >openbrowser
+search the url of the website 
+you will get something in raw 
+click action >send to repeater
+change get->head
+get the flag.
+
+
+GET / HTTP/1.1
+Host: mercury.picoctf.net:21939
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.6312.122 Safari/537.36
+Sec-Purpose: prefetch;prerender
+Purpose: prefetch
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Connection: close
+
+change
+
+HEAD / HTTP/1.1
+Host: mercury.picoctf.net:21939
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.6312.122 Safari/537.36
+Sec-Purpose: prefetch;prerender
+Purpose: prefetch
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Connection: close
+
+the Response we will get
+
+HTTP/1.1 200 OK
+flag: picoCTF{r3j3ct_th3_du4l1ty_6ef27873}
+Content-type: text/html; charset=UTF-8
