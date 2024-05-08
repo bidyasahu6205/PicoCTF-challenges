@@ -1,0 +1,33 @@
+Description
+If I told you a word started with 0x70 in hexadecimal, what would it start with in ASCII?
+
+hexadecimal ->binary ->decimal->ASCII
+0x70 = 0111 0000 = 64+32+16 = 112 ='p' 
+
+flag = picoCTF{p}
+
+Description
+What is 0x3D (base 16) in decimal (base 10)?
+
+In hexadecimal
+A = 10
+B = 11
+C = 12
+## D = 13 ##
+E = 14
+F = 15
+
+0x3D = 0011 1101 = 32+16+8+4+1 = 61
+
+flag = picoCTF{61}
+
+Description
+Can you convert the number 42 (base 10) to binary (base 2)?
+
+decimal->binary
+128  64  32  16  8  4  2  1
+ 0   0   1   0   1  0  1  0
+
+42 = 101010
+
+flag = picoCTF{101010}

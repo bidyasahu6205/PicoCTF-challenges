@@ -1,7 +1,0 @@
-Description
-If I told you a word started with 0x70 in hexadecimal, what would it start with in ASCII?
-
-hexadecimal ->binary ->decimal->ASCII
-0x70 = 0111 0000 = 64+32+16 = 112 ='p' 
-
-flag = picoCTF{p}
