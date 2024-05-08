@@ -1,0 +1,23 @@
+Description
+Using tabcomplete in the Terminal will add years to your life, esp. when dealing with long rambling directory structures and filenames: Addadshashanammu.zip
+
+bidya_sahu-picoctf@webshell:~$ wget https://mercury.picoctf.net/static/659efd595171e4c40378be6a2e9b7298/Addadshashanammu.zip
+--2024-05-08 02:05:32--  https://mercury.picoctf.net/static/659efd595171e4c40378be6a2e9b7298/Addadshashanammu.zip
+Resolving mercury.picoctf.net (mercury.picoctf.net)... 18.189.209.142
+Connecting to mercury.picoctf.net (mercury.picoctf.net)|18.189.209.142|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 4520 (4.4K) [application/octet-stream]
+Saving to: 'Addadshashanammu.zip'
+
+Addadshashanammu.zip                       100%[======================================================================================>]   4.41K  --.-KB/s    in 0s      
+
+2024-05-08 02:05:32 (1.43 GB/s) - 'Addadshashanammu.zip' saved [4520/4520]
+
+bidya_sahu-picoctf@webshell:~$ ls
+Addadshashanammu.zip  
+bidya_sahu-picoctf@webshell:~$ cd Addadshashanammu/Almurbalarammi/Ashalmimilkala/Assurnabitashpi/Maelkashishi/Onnissiralis/Ularradallaku
+bidya_sahu-picoctf@webshell:~/Addadshashanammu/Almurbalarammi/Ashalmimilkala/Assurnabitashpi/Maelkashishi/Onnissiralis/Ularradallaku$ ls
+fang-of-haynekhtnamet
+bidya_sahu-picoctf@webshell:~/Addadshashanammu/Almurbalarammi/Ashalmimilkala/Assurnabitashpi/Maelkashishi/Onnissiralis/Ularradallaku$ ./fang-of-haynekhtnamet
+*ZAP!* picoCTF{l3v3l_up!_t4k3_4_r35t!_524e3dc4}
+bidya_sahu-picoctf@webshell:~/Addadshashanammu/Almurbalarammi/Ashalmimilkala/Assurnabitashpi/Maelkashishi/Onnissiralis/Ularradallaku$ 
