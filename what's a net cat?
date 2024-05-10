@@ -1,0 +1,18 @@
+Description
+Using netcat (nc) is going to be pretty important. Can you connect to jupiter.challenges.picoctf.org at port 25103 to get the flag?
+
+All we need to do is connect to the target using the netcat command
+COMMAND
+nc -v <host> <port>
+
+This initiates a connection as a client to a specified host (server) and port. The -v flag enables verbose mode, providing more output about the connection.
+
+<host>: Replace this with the IP address or domain name of the server you want to connect to.
+<port>: Replace this with the port number on the server you want to communicate with. Common ports include:
+
+diva_bs-picoctf@webshell:~$ nc -v jupiter.challenges.picoctf.org 25103
+Connection to jupiter.challenges.picoctf.org (3.131.60.8) 25103 port [tcp/*] succeeded!
+You're on your way to becoming the net cat master
+picoCTF{nEtCat_Mast3ry_d0c64587}
+
+flag : picoCTF{nEtCat_Mast3ry_d0c64587}
