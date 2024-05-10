@@ -1,0 +1,50 @@
+Description
+Someone's commits seems to be preventing the program from working. Who is it?
+You can download the challenge files here:
+challenge.zip
+
+diva_bs-picoctf@webshell:~$ ls
+README.txt  challenge.zip  drop-in
+diva_bs-picoctf@webshell:~$ cd drop-in/
+diva_bs-picoctf@webshell:~/drop-in$ ls
+message.py
+diva_bs-picoctf@webshell:~/drop-in$ cat message.py 
+print("Hello, World!"
+diva_bs-picoctf@webshell:~/drop-in$ python message.py 
+  File "/home/diva_bs-picoctf/drop-in/message.py", line 1
+    print("Hello, World!"
+         ^
+SyntaxError: '(' was never closed
+diva_bs-picoctf@webshell:~/drop-in$ nano message.py 
+diva_bs-picoctf@webshell:~/drop-in$ python message.py 
+Hello, World!
+diva_bs-picoctf@webshell:~/drop-in$ ls -la
+total 4
+drwxr-xr-x 3 diva_bs-picoctf diva_bs-picoctf  36 May 10 08:36 .
+drwxr-xr-x 4 diva_bs-picoctf diva_bs-picoctf 146 May 10 08:36 ..
+drwxr-xr-x 8 diva_bs-picoctf diva_bs-picoctf 166 Mar  9 21:09 .git
+-rw-r--r-- 1 diva_bs-picoctf diva_bs-picoctf  23 May 10 08:36 message.py
+diva_bs-picoctf@webshell:~/drop-in$ cd .git/
+diva_bs-picoctf@webshell:~/drop-in/.git$ ls
+COMMIT_EDITMSG  branches  description  index  logs     refs
+HEAD            config    hooks        info   objects
+diva_bs-picoctf@webshell:~/drop-in/.git$ cat COMMIT_EDITMSG 
+important business work
+diva_bs-picoctf@webshell:~/drop-in/.git$ cd ~/drop-in/
+diva_bs-picoctf@webshell:~/drop-in$ git log
+diva_bs-picoctf@webshell:~/drop-in$ git log | grep pico
+Author: picoCTF <ops@picoctf.com>
+Author: picoCTF <ops@picoctf.com>
+Author: picoCTF <ops@picoctf.com>
+Author: picoCTF <ops@picoctf.com>
+Author: picoCTF{@sk_th3_1nt3rn_ea346835} <ops@picoctf.com>
+Author: picoCTF <ops@picoctf.com>
+diva_bs-picoctf@webshell:~/drop-in$ 
+
+flag : picoCTF{@sk_th3_1nt3rn_ea346835}
+
+_________________________________________________________________________________
+COMMAND 
+git log
+We need to check who committed changes in a repository
+for that we will use " git log" command
