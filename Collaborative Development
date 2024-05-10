@@ -1,0 +1,126 @@
+Description
+My team has been working very hard on new features for our flag printing program! I wonder how they'll work together?
+You can download the challenge files here:
+challenge.zip
+
+we downloaded the file first and unzip it.
+with commands
+i. wget link_to_file
+ii. unzip challenge.zip
+
+checkout what it content
+diva_bs-picoctf@webshell:~$ ls
+README.txt  challenge.zip  drop-in
+
+diva_bs-picoctf@webshell:~$ cd drop-in/
+diva_bs-picoctf@webshell:~/drop-in$ ls
+flag.py
+
+next I wanted to check what are the changes made to the file
+so i checked it's log
+
+diva_bs-picoctf@webshell:~/drop-in$ cd .git/
+diva_bs-picoctf@webshell:~/drop-in/.git$ ls
+COMMIT_EDITMSG  HEAD  branches  config  description  hooks  index  info  logs  objects  refs
+diva_bs-picoctf@webshell:~/drop-in/.git$ cd logs/
+diva_bs-picoctf@webshell:~/drop-in/.git/logs$ ls
+HEAD  refs
+diva_bs-picoctf@webshell:~/drop-in/.git/logs$ cat HEAD 
+0000000000000000000000000000000000000000 d7d09540eb1a24ed1299b230d143e6e93f9807eb picoCTF <ops@picoctf.com> 1710202072 +0000    commit (initial): init flag printer
+d7d09540eb1a24ed1299b230d143e6e93f9807eb d7d09540eb1a24ed1299b230d143e6e93f9807eb picoCTF <ops@picoctf.com> 1710202072 +0000    checkout: moving from main to feature/part-1
+d7d09540eb1a24ed1299b230d143e6e93f9807eb b2e05429742e8784eee7dc83b6a9d1fb904988c0 picoCTF <ops@picoctf.com> 1710202072 +0000    commit: add part 1
+b2e05429742e8784eee7dc83b6a9d1fb904988c0 d7d09540eb1a24ed1299b230d143e6e93f9807eb picoCTF <ops@picoctf.com> 1710202072 +0000    checkout: moving from feature/part-1 to main
+d7d09540eb1a24ed1299b230d143e6e93f9807eb d7d09540eb1a24ed1299b230d143e6e93f9807eb picoCTF <ops@picoctf.com> 1710202072 +0000    checkout: moving from main to feature/part-2
+d7d09540eb1a24ed1299b230d143e6e93f9807eb e1629c73b55d8831cfa3cda13a74c3e8f7c9e2f1 picoCTF <ops@picoctf.com> 1710202072 +0000    commit: add part 2
+e1629c73b55d8831cfa3cda13a74c3e8f7c9e2f1 d7d09540eb1a24ed1299b230d143e6e93f9807eb picoCTF <ops@picoctf.com> 1710202072 +0000    checkout: moving from feature/part-2 to main
+d7d09540eb1a24ed1299b230d143e6e93f9807eb d7d09540eb1a24ed1299b230d143e6e93f9807eb picoCTF <ops@picoctf.com> 1710202072 +0000    checkout: moving from main to feature/part-3
+d7d09540eb1a24ed1299b230d143e6e93f9807eb 8fccfcdaeeb259a51b642ba76ec2e5feb086c057 picoCTF <ops@picoctf.com> 1710202072 +0000    commit: add part 3
+8fccfcdaeeb259a51b642ba76ec2e5feb086c057 d7d09540eb1a24ed1299b230d143e6e93f9807eb picoCTF <ops@picoctf.com> 1710202072 +0000    checkout: moving from feature/part-3 to main
+d7d09540eb1a24ed1299b230d143e6e93f9807eb d7d09540eb1a24ed1299b230d143e6e93f9807eb diva_bs-picoctf <diva_bs-picoctf@webshell.(none)> 1715331096 +0000    checkout: moving from main to d7d09540eb1a24ed1299b230d143e6e93f9807eb
+
+here we saw that the flag was fragmented in 3 parts and then printed one by one to check the flag i had to go through all the changes one by one to do so I checkedout them one by one.
+I collected the commit hashs of all the commits in a notepad.
+_____________________________________________________________________________________________________________________________________
+                         NOTEPAD
+
+d7d09540eb1a24ed1299b230d143e6e93f9807eb init flag printer
+b2e05429742e8784eee7dc83b6a9d1fb904988c0 add part 1
+e1629c73b55d8831cfa3cda13a74c3e8f7c9e2f1 add part 2
+8fccfcdaeeb259a51b642ba76ec2e5feb086c057 add part 3
+_____________________________________________________________________________________________________________________________________
+diva_bs-picoctf@webshell:~/drop-in/.git/logs$ cd ~/drop-in/
+
+diva_bs-picoctf@webshell:~/drop-in$ git checkout d7d09540eb1a24ed1299b230d143e6e93f9807eb
+HEAD is now at d7d0954 init flag printer
+diva_bs-picoctf@webshell:~/drop-in$ ls
+flag.py
+diva_bs-picoctf@webshell:~/drop-in$ cat flag.py 
+print("Printing the flag...")
+
+
+diva_bs-picoctf@webshell:~/drop-in$ git checkout b2e05429742e8784eee7dc83b6a9d1fb904988c0
+Previous HEAD position was d7d0954 init flag printer
+HEAD is now at b2e0542 add part 1
+diva_bs-picoctf@webshell:~/drop-in$ ls
+flag.py
+diva_bs-picoctf@webshell:~/drop-in$ python flag.py 
+Printing the flag...
+picoCTF{t3@mw0rk_diva_bs-picoctf@webshell:~/drop-in$ nano flag.py
+
+here I changed the program a bit so that part 1 flag will be clearly visible which caused an error when I tried to checkout the second part of the flag
+
+diva_bs-picoctf@webshell:~/drop-in$ python flag.py 
+Printing the flag...
+picoCTF{t3@mw0rk_
+diva_bs-picoctf@webshell:~/drop-in$ git checkout e1629c73b55d8831cfa3cda13a74c3e8f7c9e2f1
+error: Your local changes to the following files would be overwritten by checkout:
+        flag.py
+Please commit your changes or stash them before you switch branches.
+Aborting
+
+diva_bs-picoctf@webshell:~/drop-in$ git checkout e1629c73b55d8831cfa3cda13a74c3e8f7c9e2f1
+error: Your local changes to the following files would be overwritten by checkout:
+        flag.py
+Please commit your changes or stash them before you switch branches.
+Aborting
+ to solve this problem i tried commiting the changes i made
+diva_bs-picoctf@webshell:~/drop-in$ git add flag.py 
+diva_bs-picoctf@webshell:~/drop-in$ git commit "made it work more nicely"
+error: pathspec 'made it work more nicely' did not match any file(s) known to git
+diva_bs-picoctf@webshell:~/drop-in$ git commit -m "made it work more nicely"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'diva_bs-picoctf@webshell.(none)')
+
+but due some reason I could not commit it 
+thus i had to force my way out 
+
+diva_bs-picoctf@webshell:~/drop-in$ git checkout -f e1629c73b55d8831cfa3cda13a74c3e8f7c9e2f1
+Previous HEAD position was b2e0542 add part 1
+HEAD is now at e1629c7 add part 2
+diva_bs-picoctf@webshell:~/drop-in$ ls
+flag.py
+diva_bs-picoctf@webshell:~/drop-in$ python flag.py 
+Printing the flag...
+m@k3s_th3_dr3@m_
+
+diva_bs-picoctf@webshell:~/drop-in$ git checkout 8fccfcdaeeb259a51b642ba76ec2e5feb086c057   
+Previous HEAD position was e1629c7 add part 2
+HEAD is now at 8fccfcd add part 3
+diva_bs-picoctf@webshell:~/drop-in$ python flag.py 
+Printing the flag...
+w0rk_7ae8dd33}
+diva_bs-picoctf@webshell:~/drop-in$ 
+
+now I just gather all the parts and join them to get the flag required
+flag : picoCTF{t3@mw0rk_m@k3s_th3_dr3@m_w0rk_7ae8dd33}
