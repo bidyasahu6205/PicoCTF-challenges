@@ -115,3 +115,9 @@ message.txt
 diva_bs-picoctf@webshell:~/drop-in$ cat message.txt 
 picoCTF{s@n1t1z3_be3dd3da}
 diva_bs-picoctf@webshell:~/drop-in$ 
+_________________________________________________________________________________________
+COMMANDS
+i. git checkout <commit_hash>
+   This retrieves the entire state of your project at the specific commit (identified by its hash) where the deletion hadn't happened yet.
+   Warning: This overwrites any changes you have in your working directory!
+   eg .git checkout 7d3aa557ff7ba7d116badaf5307761efb3622249
