@@ -3,3 +3,12 @@ What does this bDNhcm5fdGgzX3IwcDM1 mean? I think it has something to do with ba
 
 It want us to convert the cipher text format to a clear text 
 and the hint in the question is it's a base encoding
+
+so we can use online converters such as cyberchef 
+or linux commands
+                      base64 -d <<< text_to_be_decoded
+diva_bs-picoctf@webshell:~$ base64 -d <<< bDNhcm5fdGgzX3IwcDM1
+l3arn_th3_r0p35
+diva_bs-picoctf@webshell:~$ 
+
+flag: picoCTF{l3arn_th3_r0p35}
