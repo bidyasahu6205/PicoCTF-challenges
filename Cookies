@@ -1,3 +1,5 @@
 Description
 Who doesn't love cookies? Try to figure out the best one. http://mercury.picoctf.net:17781/
 
+We inspect the page and used burpsuite to i'll get back o it
+flag:picoCTF{3v3ry1_l0v3s_c00k135_bb3b3535}
