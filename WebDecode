@@ -1,0 +1,8 @@
+Description
+Do you know how to use the web inspector?
+Start searching here to find the flag
+
+inspect the page there you will find encoded string 
+notify_true="cGljb0NURnt3ZWJfc3VjYzNzc2Z1bGx5X2QzYzBkZWRfZjZmNmI3OGF9"
+decode it to get the flag. It is encoded with base64 
+flag: picoCTF{web_succ3ssfully_d3c0ded_f6f6b78a}
