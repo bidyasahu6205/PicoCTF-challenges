@@ -1,0 +1,7 @@
+Description
+http://mercury.picoctf.net:55336/index.html
+
+same old story inspect here we look though the webassembly file as the js fetch something from it and tries to comapare.
+and finds the flag at bottom of the file
+
+flag: picoCTF{51e513c498950a515b1aab5e941b2615}
