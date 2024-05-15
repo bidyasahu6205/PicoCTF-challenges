@@ -1,0 +1,11 @@
+Description
+Why search for the flag when I can make a bookmarklet to print it for me?
+Browse here, and find the flag!
+
+Bookmarlet
+A bookmarklet is a bookmark that runs JavaScript instead of loading a webpage.
+
+so when we run the instance and click on the url we will get to a page where a javascript code will be given to get the flag we create a bookmark with the script as url 
+after creating the bookmark when you click to open it the crome will run the script instead of opening the website
+
+flag: picoCTF{p@g3_turn3r_e8b2d43b} 
