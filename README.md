@@ -1,13 +1,13 @@
 # PicoCTF-challenges
 this repository is all about ctf solutions and things we learned from it.
 General skills
-1.Obedient cat 
+1. Obedient cat 
 2. Python Wrangling
-3.wave a flag
+3. wave a flag
 4. nice netcat
 5. static ain't always noise
-6.Tab, Tab, Attack
-7.Super SSH
+6. Tab, Tab, Attack
+7. Super SSH
 8. Magikarp Ground Mission
 9. Lets Warm Up
 10. Warmed Up
@@ -32,3 +32,4 @@ Web Exploitation
 5. Bookmarklet
 6. WebDecode
 7. Some Assembly Required 1
+
