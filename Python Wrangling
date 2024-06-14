@@ -123,5 +123,5 @@ elif sys.argv[1] == "-h" or sys.argv[1] == "--help":
 else:
     print("Unrecognized first argument: "+ sys.argv[1])
     print("Please use '-e', '-d', or '-h'.")
-# if it cant recognize anything it prints " use -h -e -d " alog with erroe message
+# if it cant recognize anything it prints " use -h -e -d " alog with error message
 
