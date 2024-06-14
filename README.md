@@ -24,3 +24,11 @@ General skills
 21. convertme.py
 22. fixme1.py
 23. fixme2.py
+Web Exploitation
+1. GET aHEAD
+2. Cookies
+3. Insp3ct0r
+4. Scavenger Hunt
+5. Bookmarklet
+6. WebDecode
+7. Some Assembly Required 1
