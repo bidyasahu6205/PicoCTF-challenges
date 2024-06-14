@@ -114,7 +114,6 @@ diva_bs-picoctf@webshell:~/drop-in$ ls
 message.txt
 diva_bs-picoctf@webshell:~/drop-in$ cat message.txt 
 picoCTF{s@n1t1z3_be3dd3da}
-diva_bs-picoctf@webshell:~/drop-in$ 
 _________________________________________________________________________________________
 COMMANDS
 i. git checkout <commit_hash>
