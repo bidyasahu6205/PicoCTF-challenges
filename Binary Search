@@ -36,26 +36,32 @@ Warning: Permanently added '[atlas.picoctf.net]:49995' (ED25519) to the list of 
 ctf-player@atlas.picoctf.net's password: 
 Welcome to the Binary Search Game!
 I'm thinking of a number between 1 and 1000.
-Enter your guess: 500
+Enter your guess: 500                  # middle vale between 0 and 1000
 
 Lower! Try again.
 Enter your guess: Please enter a valid number.
-Enter your guess: 250
+Enter your guess: 250                  # since it said lower we give the middle vale between 0 and 500
 Lower! Try again.
-Enter your guess: 125
+Enter your guess: 125                   # since it said lower we give the middle vale between 0 and 250
 Higher! Try again.
-Enter your guess: 187
+Enter your guess: 187                   # since it said higher we give the middle vale between 125 and 250
 Lower! Try again.
-Enter your guess: 156
+Enter your guess: 156                   # since it said lower we give the middle vale between 125 and 187
 Lower! Try again.
-Enter your guess: 140
+Enter your guess: 140                  # since it said lower we give the middle vale between 125 and 156
 Higher! Try again.
-Enter your guess: 148
+Enter your guess: 148                   # since it said higher we give the middle vale between 140 and 156
 Lower! Try again.
-Enter your guess: 144
+Enter your guess: 144                   # since it said lower we give the middle vale between 140 and 148
 Lower! Try again.
-Enter your guess: 142
+Enter your guess: 142                   # since it said lower we give the middle vale between 140 and 144  and here we got the correct value resulting we got the flag :)
 Congratulations! You guessed the correct number: 142
 Here's your flag: picoCTF{g00d_gu355_de9570b0}
 Connection to atlas.picoctf.net closed.
 
+- Here we are exploring binary search if you know binary search you can understand what's happening there.
+- In binary search we first find the middle value of the sorted array and check if that value is the one is we are looking for. 
+- if not we check if the the value we got is smaller or greater than the value we are looking for 
+   -> if the value is smaller then we find the middle element between first and middle element (taking it as the last element)
+   -> if the value is greater then we find the middle element between middle element (taking it as the first element) and last element 
+- and so on till we find the value.
