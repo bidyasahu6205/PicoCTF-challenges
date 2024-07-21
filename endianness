@@ -1,0 +1,37 @@
+Description
+Know of little and big endian?
+Source
+nc titan.picoctf.net 59832
+
+download the source file using wget or curl -O command
+diva_bs-picoctf@webshell:~$ nc titan.picoctf.net 59832
+Welcome to the Endian CTF!
+You need to find both the little endian and big endian representations of a word.
+If you get both correct, you will receive the flag.
+Word: hvaed
+Enter the Little Endian representation: 6465617668
+Correct Little Endian representation!
+Enter the Big Endian representation: 6876616564
+Correct Big Endian representation!
+Congratulations! You found both endian representations correctly!
+Your Flag is: picoCTF{3ndi4n_sw4p_su33ess_28329f0a}
+
+- Endianness refers to the order in which bytes are arranged in memory
+- Different languages read their text in different orders.for example, English reads from left to right, while Arabic reads from right to left.
+- Endianness works similarly for computers. If one computer reads bytes from left to right and another reads them from right to left, issues arise when these computers need to communicate.
+- Big-endian (BE): Stores the most significant byte (the “big end”) first. This means that the first byte (at the lowest memory address) is the largest, which makes the most sense to people who read left to right.
+- Little-endian (LE): Stores the least significant byte (the “little end”) first. This means that the first byte (at the lowest memory address) is the smallest, which makes the most sense to people who read right to left.
+let's take the example of the word given in the CTF question
+let's convert the word in hexadecimal form (letter - decimal - hexadecimal)
+'h' - 104 - 68
+'v' - 118 - 76
+'a' - 97 - 61
+'e' - 101 - 65
+'d' - 100 -64
+Now,
+    Little Endian representation 
+      ->d to h
+      -> i.e 6465617668
+    Big Endian representation 
+      ->h to d
+      -> i.e 6876616564
