@@ -25,6 +25,7 @@ General skills
 22. fixme1.py
 23. fixme2.py
 24. Binary Search
+25. endianness
 
 Web Exploitation
 1. GET aHEAD
