@@ -28,6 +28,8 @@ General skills
 25. endianness
 26. binhexa
 27. ASCII Numbers
+28. repetitions
+29. Big Zip
 
 Web Exploitation
 1. GET aHEAD
