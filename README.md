@@ -26,6 +26,8 @@ General skills
 23. fixme2.py
 24. Binary Search
 25. endianness
+26. binhexa
+27. ASCII Numbers
 
 Web Exploitation
 1. GET aHEAD
