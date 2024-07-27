@@ -30,6 +30,10 @@ General skills
 27. ASCII Numbers
 28. repetitions
 29. Big Zip
+30. First Find
+31. Serpentine
+32. runme.py
+33. PW Crack 3
 
 Web Exploitation
 1. GET aHEAD
