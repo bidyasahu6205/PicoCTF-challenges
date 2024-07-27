@@ -1,0 +1,270 @@
+Description
+Find the flag in the Python script!
+Download Python script
+
+diva_bs-picoctf@webshell:~$ wget https://artifacts.picoctf.net/c/37/serpentine.py
+--2024-07-27 05:02:31--  https://artifacts.picoctf.net/c/37/serpentine.py
+Resolving artifacts.picoctf.net (artifacts.picoctf.net)... 3.160.22.128, 3.160.22.16, 3.160.22.43, ...
+Connecting to artifacts.picoctf.net (artifacts.picoctf.net)|3.160.22.128|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2550 (2.5K) [application/octet-stream]
+Saving to: 'serpentine.py'
+
+serpentine.py          100%[===========================>]   2.49K  --.-KB/s    in 0s      
+
+2024-07-27 05:02:31 (1.04 GB/s) - 'serpentine.py' saved [2550/2550]
+
+diva_bs-picoctf@webshell:~$ ls
+README.txt  serpentine.py
+diva_bs-picoctf@webshell:~$ python serpentine.py 
+
+    Y
+  .-^-.
+ /     \      .- ~ ~ -.
+()     ()    /   _ _   `.                     _ _ _
+ \_   _/    /  /     \   \                . ~  _ _  ~ .
+   | |     /  /       \   \             .' .~       ~-. `.
+   | |    /  /         )   )           /  /             `.`.
+   \ \_ _/  /         /   /           /  /                `'
+    \_ _ _.'         /   /           (  (
+                    /   /             \  \
+                   /   /               \  \
+                  /   /                 )  )
+                 (   (                 /  /
+                  `.  `.             .'  /
+                    `.   ~ - - - - ~   .'
+                       ~ . _ _ _ _ . ~
+
+Welcome to the serpentine encourager!
+
+
+a) Print encouragement
+b) Print flag
+c) Quit
+
+What would you like to do? (a/b/c) a
+
+-----------------------------------------------------
+Keep it up!
+-----------------------------------------------------
+
+
+a) Print encouragement
+b) Print flag
+c) Quit
+
+What would you like to do? (a/b/c) b
+
+Oops! I must have misplaced the print_flag function! Check my source code!
+
+
+a) Print encouragement
+b) Print flag
+c) Quit
+
+What would you like to do? (a/b/c) c
+diva_bs-picoctf@webshell:~$ nano serpentine.py
+______________________________________________________________________________________________________________________________________________________________
+import random
+import sys
+
+
+
+def str_xor(secret, key):
+    #extend key to secret length
+    new_key = key
+    i = 0
+    while len(new_key) < len(secret):
+        new_key = new_key + key[i]
+        i = (i + 1) % len(key)        
+    return "".join([chr(ord(secret_c) ^ ord(new_key_c)) for (secret_c,new_key_c) in zip(se>
+
+
+flag_enc = chr(0x15) + chr(0x07) + chr(0x08) + chr(0x06) + chr(0x27) + chr(0x21) + chr(0x2>
+
+
+def print_flag():
+  flag = str_xor(flag_enc, 'enkidu')
+  print(flag)
+
+
+def print_encouragement():
+  encouragements = ['You can do it!', 'Keep it up!', 
+                    'Look how far you\'ve come!']
+  choice = random.choice(range(0, len(encouragements)))
+  print('\n-----------------------------------------------------')
+  print('\n-----------------------------------------------------')
+  print(encouragements[choice])
+  print('-----------------------------------------------------\n\n')
+
+
+
+def main():
+
+  print(
+'''
+    Y
+  .-^-.
+ /     \      .- ~ ~ -.
+()     ()    /   _ _   `.                     _ _ _
+ \_   _/    /  /     \   \                . ~  _ _  ~ .
+   | |     /  /       \   \             .' .~       ~-. `.
+   | |    /  /         )   )           /  /             `.`.
+   \ \_ _/  /         /   /           /  /                `'
+    \_ _ _.'         /   /           (  (
+                    /   /             \  \\
+                   /   /               \  \\
+                  /   /                 )  )
+                 (   (                 /  /
+                  `.  `.             .'  /
+                    `.   ~ - - - - ~   .'
+                       ~ . _ _ _ _ . ~
+'''
+  )
+  print('Welcome to the serpentine encourager!\n\n')
+  
+  while True:
+    print('a) Print encouragement')
+    print('b) Print flag')
+    print('c) Quit\n')
+    choice = input('What would you like to do? (a/b/c) ')
+    
+    if choice == 'a':
+      print_encouragement()
+
+    elif choice == 'b':
+      print('\nOops! I must have misplaced the print_flag function! Check my source code!\>
+
+    elif choice == 'c':
+      sys.exit(0)
+
+    else:
+      print('\nI did not understand "' + choice + '", input only "a", "b" or "c"\n\n')
+
+
+
+if __name__ == "__main__":
+  main()
+_______________________________________________________________________________________________________________________________________
+import random
+import sys
+
+
+
+def str_xor(secret, key):
+    #extend key to secret length
+    new_key = key
+    i = 0
+    while len(new_key) < len(secret):
+        new_key = new_key + key[i]
+        i = (i + 1) % len(key)        
+    return "".join([chr(ord(secret_c) ^ ord(new_key_c)) for (secret_c,new_key_c) in zip(se>
+
+
+flag_enc = chr(0x15) + chr(0x07) + chr(0x08) + chr(0x06) + chr(0x27) + chr(0x21) + chr(0x2>
+
+
+def print_flag():
+  flag = str_xor(flag_enc, 'enkidu')
+  print(flag)
+
+
+def print_encouragement():
+  encouragements = ['You can do it!', 'Keep it up!', 
+                    'Look how far you\'ve come!']
+  choice = random.choice(range(0, len(encouragements)))
+  print('\n-----------------------------------------------------')
+  print('\n-----------------------------------------------------')
+  print(encouragements[choice])
+  print('-----------------------------------------------------\n\n')
+
+
+
+def main():
+
+  print(
+'''
+    Y
+  .-^-.
+ /     \      .- ~ ~ -.
+()     ()    /   _ _   `.                     _ _ _
+ \_   _/    /  /     \   \                . ~  _ _  ~ .
+   | |     /  /       \   \             .' .~       ~-. `.
+   | |    /  /         )   )           /  /             `.`.
+   \ \_ _/  /         /   /           /  /                `'
+    \_ _ _.'         /   /           (  (
+                    /   /             \  \\
+                   /   /               \  \\
+                  /   /                 )  )
+                 (   (                 /  /
+                  `.  `.             .'  /
+                    `.   ~ - - - - ~   .'
+                       ~ . _ _ _ _ . ~
+'''
+  )
+  print('Welcome to the serpentine encourager!\n\n')
+  
+  while True:
+    print('a) Print encouragement')
+    print('b) Print flag')
+    print('c) Quit\n')
+    choice = input('What would you like to do? (a/b/c) ')
+    
+    if choice == 'a':
+      print_encouragement()
+
+    elif choice == 'b':
+      print_flag()
+      #i changed the message with the function call that will call the print flag funtion.
+    elif choice == 'c':
+      sys.exit(0)
+
+    else:
+      print('\nI did not understand "' + choice + '", input only "a", "b" or "c"\n\n')
+
+
+
+if __name__ == "__main__":
+  main()
+_____________________________________________________________________________________________________________________________________________
+diva_bs-picoctf@webshell:~$ python serpentine.py 
+
+    Y
+  .-^-.
+ /     \      .- ~ ~ -.
+()     ()    /   _ _   `.                     _ _ _
+ \_   _/    /  /     \   \                . ~  _ _  ~ .
+   | |     /  /       \   \             .' .~       ~-. `.
+   | |    /  /         )   )           /  /             `.`.
+   \ \_ _/  /         /   /           /  /                `'
+    \_ _ _.'         /   /           (  (
+                    /   /             \  \
+                   /   /               \  \
+                  /   /                 )  )
+                 (   (                 /  /
+                  `.  `.             .'  /
+                    `.   ~ - - - - ~   .'
+                       ~ . _ _ _ _ . ~
+
+Welcome to the serpentine encourager!
+
+
+a) Print encouragement
+b) Print flag
+c) Quit
+
+What would you like to do? (a/b/c) b
+picoCTF{7h3_r04d_l355_7r4v3l3d_8e47d128}
+a) Print encouragement
+b) Print flag
+c) Quit
+
+What would you like to do? (a/b/c) c
+diva_bs-picoctf@webshell:~$ 
+
+-In this challenge we were supposed to correct the python program to get the flag
+and that's what i did.
+we used the default text editor available in linux i.e nano to edit the python file
+and as i have shown above i changed the message given in option b of the python script
+with the function call to the flag printing function in the script.
+
