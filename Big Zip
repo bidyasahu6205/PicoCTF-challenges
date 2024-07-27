@@ -2,3 +2,25 @@ Description
 Unzip this archive and find the flag.
 Download zip file
 
+diva_bs-picoctf@webshell:~$ curl -O https://artifacts.picoctf.net/c/503/big-zip-files.zip
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 3108k  100 3108k    0     0  8873k      0 --:--:-- --:--:-- --:--:-- 8881k
+diva_bs-picoctf@webshell:~$ ls
+README.txt  big-zip-files.zip
+diva_bs-picoctf@webshell:~$ unzip big-zip-files.zip 
+....
+diva_bs-picoctf@webshell:~$grep -r pico big-zip-files
+big-zip-files/folder_pmbymkjcya/folder_cawigcwvgv/folder_ltdayfmktr/folder_fnpfclfyee/whzxrpivpqld.txt:information on the record will last a billion years. Genes and brains and books encode picoCTF{gr3p_15_m4g1c_ef8790dc}
+
+
+
+We know grep is used to find a certain text in a file or a file or directory.
+there are many more options that comes with it which can be usefull.
+here we need to find the flag which might be present in one of the file in the dirctory big-zip-files
+but it will take a lot of effort and time to find the flag going through each and every directory and files.
+we can use grep -r option to find the text.
+this will go through each and every file in all the directories present in big-zip-files and return that certain part along with the path to the file.
+you can know more about it and many more option that could be used with it in linux
+by typing the command " man grep " 
+man can be used with any command to know all possible use of that command.
