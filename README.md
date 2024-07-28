@@ -36,6 +36,7 @@ General skills
 33. PW Crack 3
 34. PW Crack 2
 35. PW Crack 1
+36. HashingJobApp
 
 Web Exploitation
 1. GET aHEAD
