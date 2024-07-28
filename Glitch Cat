@@ -1,0 +1,13 @@
+Description
+Our flag printing service has started glitching!
+$ nc saturn.picoctf.net 53421
+
+diva_bs-picoctf@webshell:~$ nc saturn.picoctf.net 53421
+'picoCTF{gl17ch_m3_n07_' + chr(0x39) + chr(0x63) + chr(0x34) + chr(0x32) + chr(0x61) + chr(0x34) + chr(0x35) + chr(0x64) + '}'
+
+diva_bs-picoctf@webshell:~$ python
+Python 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> print('picoCTF{gl17ch_m3_n07_' + chr(0x39) + chr(0x63) + chr(0x34) + chr(0x32) + chr(0x61) + chr(0x34) + chr(0x35) + chr(0x64) + '}')
+picoCTF{gl17ch_m3_n07_9c42a45d}
+>>> 
