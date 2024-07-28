@@ -1,0 +1,73 @@
+Description
+Can you crack the password to get the flag?
+Download the password checker here and you'll need the encrypted flag in the same directory too.
+
+diva_bs-picoctf@webshell:~$ wget https://artifacts.picoctf.net/c/11/level1.py
+--2024-07-28 07:58:00--  https://artifacts.picoctf.net/c/11/level1.py
+Resolving artifacts.picoctf.net (artifacts.picoctf.net)... 18.172.134.74, 18.172.134.37, 18.172.134.120, ...
+Connecting to artifacts.picoctf.net (artifacts.picoctf.net)|18.172.134.74|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 876 [application/octet-stream]
+Saving to: 'level1.py'
+
+level1.py              100%[===========================>]     876  --.-KB/s    in 0s      
+
+2024-07-28 07:58:01 (405 MB/s) - 'level1.py' saved [876/876]
+
+diva_bs-picoctf@webshell:~$ wget https://artifacts.picoctf.net/c/11/level1.flag.txt.enc
+--2024-07-28 07:58:25--  https://artifacts.picoctf.net/c/11/level1.flag.txt.enc
+Resolving artifacts.picoctf.net (artifacts.picoctf.net)... 3.160.22.128, 3.160.22.92, 3.160.22.16, ...
+Connecting to artifacts.picoctf.net (artifacts.picoctf.net)|3.160.22.128|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 30 [application/octet-stream]
+Saving to: 'level1.flag.txt.enc'
+
+level1.flag.txt.enc    100%[===========================>]      30  --.-KB/s    in 0s      
+
+2024-07-28 07:58:25 (14.4 MB/s) - 'level1.flag.txt.enc' saved [30/30]
+
+diva_bs-picoctf@webshell:~$ ls
+README.txt  level1.flag.txt.enc  level1.py
+diva_bs-picoctf@webshell:~$ python level1.py 
+Please enter correct password for flag: password
+That password is incorrect
+diva_bs-picoctf@webshell:~$ nano level1.py
+________________________________________________________________________________________________________________________________
+### THIS FUNCTION WILL NOT HELP YOU FIND THE FLAG --LT ########################
+def str_xor(secret, key):
+    #extend key to secret length
+    new_key = key
+    i = 0
+    while len(new_key) < len(secret):
+        new_key = new_key + key[i]
+        i = (i + 1) % len(key)        
+    return "".join([chr(ord(secret_c) ^ ord(new_key_c)) for (secret_c,new_key_c) in zip(se>
+#This function decodes the flag using the password we gave 
+###############################################################################
+
+
+flag_enc = open('level1.flag.txt.enc', 'rb').read()
+
+
+
+def level_1_pw_check():
+    user_pw = input("Please enter correct password for flag: ")
+    if( user_pw == "1e1a"):
+        print("Welcome back... your flag, user:")
+        decryption = str_xor(flag_enc.decode(), user_pw)
+        print(decryption)
+        return
+    print("That password is incorrect")
+
+
+
+level_1_pw_check()
+________________________________________________________________________________________________________________________________________________________
+diva_bs-picoctf@webshell:~$ python level1.py 
+Please enter correct password for flag: 1e1a
+Welcome back... your flag, user:
+picoCTF{545h_r1ng1ng_fa343060}
+
+-This challenge was pretty eacsy our task was to get the password so that we could get the flag
+- We didn't have to alter the code to get the password at all as the password was already visibal to me 
+-I just read it and used it to get the thing i wanted.
