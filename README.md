@@ -34,6 +34,8 @@ General skills
 31. Serpentine
 32. runme.py
 33. PW Crack 3
+34. PW Crack 2
+35. PW Crack 1
 
 Web Exploitation
 1. GET aHEAD
