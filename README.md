@@ -37,6 +37,9 @@ General skills
 34. PW Crack 2
 35. PW Crack 1
 36. HashingJobApp
+37. Glitch Cat
+38. plumbing
+39. Based
 
 Web Exploitation
 1. GET aHEAD
