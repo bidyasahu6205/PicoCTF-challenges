@@ -141,4 +141,4 @@ That password is incorrect
 Welcome back... your flag, user:
 picoCTF{m45h_fl1ng1ng_cd6ed2eb}
 
-- All we need to do here was update the script a bit with simple logic to guess the flag.
+- All we need to do here was update the script a bit with simple logic to get the flag.
