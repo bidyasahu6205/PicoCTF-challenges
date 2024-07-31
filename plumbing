@@ -35,3 +35,9 @@ I don't think this is a flag either
 diva_bs-picoctf@webshell:~$ nc jupiter.challenges.picoctf.org 14291 | grep picoCTF
 picoCTF{digital_plumb3r_ea8bfec7}
 ^C
+
+-In this challenge i used nc netcat command TO connect to this remote server
+  syntax : nc <host> <port no.>
+-The 'nc' or Netcat command in Linux is a networking utility for reading from and writing to network connections using TCP or UDP.
+- then it printed a long song kind of thing but i don't time to go through each line to find the flag so i used grepp command to only print those line that contained picoCTF
+and found the flag.
