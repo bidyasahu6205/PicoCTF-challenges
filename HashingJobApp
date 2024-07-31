@@ -20,5 +20,48 @@ Answer:
 Correct.
 picoCTF{4ppl1c4710n_r3c31v3d_bf2ceb02}
 
+- Hashing is the process of scrambling a piece of information or data beyond recognition.
+- They are designed to be irreversible.
+- Used for
+  i. password storage
+    - when a user signs up to create a new account the password is passed through a hash function and stored in the servers.
+    - when the user logins again and enter the password the hash values are created and compared with the stored ones if it is same then user is allowed to login else he doesn't.
+  ii. integrity verification
+    - when a file is uploaded in the internet it also pass through a hash function
+    - Once the hash digest is generated it's uploaded along with the file onto the internet
+    - when a user downloads the file they also get the hash downloaded once the file run through the hash function again the digest is compared to the one provided by the uploader
+    - If the digests are same both the owner and file is verified
 MD5 ALGORITHM
-- 
+- One way cryptographic hash function.
+- 128-bit digest irrespective of input
+- hash to be considered secure it should meet 2 requirement
+  i. impossible to generate message that match specific hash value
+  ii. impossible to create 2 messages producing same hash value. Even a sight change in text should result in huge difference in the hash value preventing hash collision
+- STEPS TO GET A MD5 HASH 
+i.Padding bits: 
+  - Bits are added to the original input to make it compatible with the hash funtion. 
+  - When we recieve the input string we have to make sure the size is 64 bit short of any multiple of 512.
+  - The first bit added is '1' and rest are '0'.
+ii.Padding Length
+  - We add length bits in such a way that the total no. of bits in the message is perfectlly a multiple of 512.
+  - That means 64-bit length is to be precise are added to the message.
+iii.Initialize Message Digest Buffer
+  - the entire message is broken down into blocks of 512 bits each.
+  - 4 buffers (A,B,C and D ) are used of 32 bits each.
+  - The first iteration has fixed hexadecimal values.
+    A = 01 23 45 67
+    B = 89 ab cd ef
+    C - fe dc ba 98
+    D = 76 54 32 10
+iv. Process Each block
+  - Each block is broken down to 16 sub blocks of 32 bits each.
+  - For each sub blocks we run 4 rounds of operations,each of them utilizing all 16 sub blocks, the 4 buffers and another constant different for each round of the operation
+  - The constant values are stored in a randon array of 64 elements.
+  - Since each 32-bit sub-blocks is run 4 times 16 such sub-blocks equal 64 constant values needed for a single block iteration
+  - The sub-blocks can be denoted by the M and constant values are denoted by T
+  - At the very beginning the values of buffer B,C and D are passed on to a non-linear logarithmic function.
+  - the formula behind this function changes by the perticular round being worked on
+  - Once the output is calculated it is addes to the raw value stored in buffer A
+  - The output of this addition is added to perticular 32-bit sub-block using which we are running the four operations.
+  - The outpu tof this requisite function then needs to be added to a constant value derived from the constant array k
+  - Science we ave four different elements in the array repeat
