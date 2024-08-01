@@ -19,7 +19,7 @@ Answer:
 81d1d45dbb19a90fdfae4f87865b136a
 Correct.
 picoCTF{4ppl1c4710n_r3c31v3d_bf2ceb02}
-
+__________________________________________________________________________________________________________________________________________________________________________________________________
 - Hashing is the process of scrambling a piece of information or data beyond recognition.
 - They are designed to be irreversible.
 - Used for
@@ -60,8 +60,28 @@ iv. Process Each block
   - Since each 32-bit sub-blocks is run 4 times 16 such sub-blocks equal 64 constant values needed for a single block iteration
   - The sub-blocks can be denoted by the M and constant values are denoted by T
   - At the very beginning the values of buffer B,C and D are passed on to a non-linear logarithmic function.
-  - the formula behind this function changes by the perticular round being worked on
+##############################################################################################################################################################################
+Non-linear process funtion
+  - Different for each round
+  - used to increase randomness of the hash as an upgrade over MD4
+  - The formula for each of the 4 rounds uses the same parameters that is b,c and d to generate a single output.
+    ->Round 1: (b AND c) OR ((NOT b) AND (d))
+    ->Round 2: (b AND d) OR (c AND (NOT d))
+    ->Round 3: b XOR c XOR d
+    ->Round 4: c XOR (b OR (NOT d))
+##############################################################################################################################################################################
   - Once the output is calculated it is addes to the raw value stored in buffer A
   - The output of this addition is added to perticular 32-bit sub-block using which we are running the four operations.
-  - The outpu tof this requisite function then needs to be added to a constant value derived from the constant array k
-  - Science we ave four different elements in the array repeat
+  - The output of this requisite function then needs to be added to a constant value derived from the constant array k
+  - Since we have four different elements in the array repeat
+  - since we have 64 different elements in the array we can use a distinct element for each iteration of a particular block
+  - Next perform a circular shift. It increases the complexity of the hash algorithm and necessary to create a unique digest for each individual input
+  - the output generated is later added to the value stored in the buffer B.
+  - The final output is now stored in the second buffer of B of the output register.
+  - Individual values of C,D and A are derived from the preceding element before the iterartion started.Means the value of B get stored in C ,the value of C get stored in D and the value of D is stored in A.
+  - Now that we have a full register ready for this sub-block the value of A,B,C and D are moved on as input to the next sub block.
+  - Once all 16 sub-blocks are completed the final register value is saved and the next 512-bit block begins.
+  - At the end of all theseblocks we get a final digest of MD5 algorithm
+
+-In this challenge we had to find the MD% hash of certain word given after connecting to a certain remote server using netcat command.
+-well i did not calculated those by hand as it could be a bit time consuming and complex to perform such complex process instead i took help of internet and wbsites to find the hash values of those words.
