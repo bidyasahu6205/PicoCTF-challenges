@@ -40,6 +40,7 @@ General skills
 37. Glitch Cat
 38. plumbing
 39. Based
+40. dont-you-love-banners
 
 Web Exploitation
 1. GET aHEAD
