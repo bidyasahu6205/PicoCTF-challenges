@@ -1,0 +1,63 @@
+Description
+The Multiverse is within your grasp! Unfortunately, the server that contains the secrets of the multiverse is in a universe where keyboards only have numbers and (most) symbols.
+Additional details will be available after launching your challenge instance.
+ssh -p 59404 ctf-player@mimas.picoctf.net
+Use password: 6dd28e9b
+
+Hint: Where can you get some letters?
+
+diva_bs-picoctf@webshell:~$ ssh -p 59404 ctf-player@mimas.picoctf.net
+The authenticity of host '[mimas.picoctf.net]:59404 ([52.15.88.75]:59404)' can't be established.
+ED25519 key fingerprint is SHA256:n/hDgUtuTTF85Id7k2fxmHvb6rrLrACHNM6xLZ46AqQ.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '[mimas.picoctf.net]:59404' (ED25519) to the list of known hosts.
+ctf-player@mimas.picoctf.net's password: 
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 6.5.0-1016-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+SansAlpha$ ls
+SansAlpha: Unknown character detected
+
+- we connected to SSH ( SSH(Secure Shell) is a network protocol that provides a secure way to access and manage remote devices over an unsecured network.)
+and gave the password we open a terminal 
+- when i tried to list files and directory it say unkown character detected
+- then i researched what other way can we use to communicate with a terminal.
+
+SansAlpha$ ./?
+bash: ./?: No such file or directory
+
+SansAlpha$ ./??
+bash: ./??: No such file or directory
+
+SansAlpha$ ./???
+bash: ./???: No such file or directory
+
+SansAlpha$ ./????
+bash: ./????: No such file or directory
+
+SansAlpha$ ./?????
+bash: ./?????: No such file or directory
+
+SansAlpha$ ./??????
+bash: ./blargh: Is a directory
+
+SansAlpha$ ./??????/*
+bash: ./blargh/flag.txt: Permission denied
+
+-This are called wild cards 
