@@ -12,13 +12,6 @@ diva_bs-picoctf@webshell:~$ nc tethys.picoctf.net 55236
 *************************************
 
 what is the password? 
-^C
-diva_bs-picoctf@webshell:~$ nc tethys.picoctf.net 55236
-*************************************
-**************WELCOME****************
-*************************************
-
-what is the password? 
 My_Passw@rd_@1234
 What is the top cyber security conference in the world?
 defcon
@@ -43,9 +36,6 @@ drwxr-xr-x 1 root   root     20 Mar  9 16:39 ..
 -rw-r--r-- 1 player player  807 Apr  4  2018 .profile
 -rw-r--r-- 1 player player  114 Feb  7 17:25 banner
 -rw-r--r-- 1 root   root     13 Feb  7 17:25 text
-player@challenge:~$ ls -la ./root
-ls -la ./root
-ls: cannot access './root': No such file or directory
 player@challenge:~$ ls -la /root
 ls -la /root
 total 16
@@ -65,25 +55,28 @@ incorrect_ans_reply = "Lol, good try, try again and good luck\n"
 
 if __name__ == "__main__":
     try:
-      with open("/home/player/banner", "r") as f:
-        print(f.read())
-    except:
+      with open("/home/player/banner", "r") as f: #opens the banner to print it.we are are going to use it to get the flag.
+        print(f.read()) #prints the banner
+    except: #if due some reason the file did not open then this block will be executed
       print("*********************************************")
       print("***************DEFAULT BANNER****************")
       print("*Please supply banner in /home/player/banner*")
       print("*********************************************")
 
 try:
-    request = input("what is the password? \n").upper()
+    request = input("what is the password? \n").upper()    #take the password as input
     while request:
         if request == 'MY_PASSW@RD_@1234':
-            text = input("What is the top cyber security conference in the world?\n").upper()
-            if text == 'DEFCON' or text == 'DEF CON':
+            text = input("What is the top cyber security conference in the world?\n").upper()    # take input for question one
+            if text == 'DEFCON' or text == 'DEF CON':    #if the answer is correct then only this block is executed
                 output = input(
-                    "the first hacker ever was known for phreaking(making free phone calls), who was it?\n").upper()
-                if output == 'JOHN DRAPER' or output == 'JOHN THOMAS DRAPER' or output == 'JOHN' or output== 'DRAPER':
+                    "the first hacker ever was known for phreaking(making free phone calls), who was it?\n").upper()    # take input for question two
+                if output == 'JOHN DRAPER' or output == 'JOHN THOMAS DRAPER' or output == 'JOHN' or output== 'DRAPER':    #if the answer is correct then only psudo terminal is provided
                     scmd = 'su - player'
-                    pty.spawn(scmd.split(' '))
+                    pty.spawn(scmd.split(' ')) 
+                   '''pty.spawn(): is useful for running interactive command-line programs within a script.
+                    scmd.split(' ') takes a string variable scmd, which presumably contains a shell command, and splits it into a list of command and arguments, using spaces as delimiters.
+                    This list is what pty.spawn() expects as input for the command to be executed.'''
 
                 else:
                     print(incorrect_ans_reply)
@@ -106,28 +99,6 @@ banner  flag.txt  link  text
 player@challenge:~$ cat flag.txt
 cat flag.txt
 cat: flag.txt: Permission denied
-player@challenge:~$ rm flag.txt
-rm flag.txt
-player@challenge:~$ ls
-ls
-banner  link  text
-player@challenge:~$ cat link
-cat link
-cat: link: Permission denied
-player@challenge:~$ cat $(readlink -f link)
-cat $(readlink -f link)
-cat: /root/flag.txt: Permission denied
-player@challenge:~$ cp link banner.txt
-cp link banner.txt
-cp: cannot open 'link' for reading: Permission denied
-player@challenge:~$ echo test text > banner
-echo test text > banner
-player@challenge:~$ cat banner
-cat banner
-test text
-player@challenge:~$ link - > /root/flag.txt
-link - > /root/flag.txt
--su: /root/flag.txt: Permission denied
 player@challenge:~$ ln -s /root/flag.txt banner
 ln -s /root/flag.txt banner
 ln: failed to create symbolic link 'banner': File exists
@@ -135,7 +106,30 @@ player@challenge:~$ rm banner
 rm banner
 player@challenge:~$ ln -s /root/flag.txt banner
 ln -s /root/flag.txt banner
+player@challenge:~$ cat banner
+cat banner
+cp: cannot open 'banner' for reading: Permission denied
 diva_bs-picoctf@webshell:~$ nc tethys.picoctf.net 55236
 picoCTF{b4nn3r_gr4bb1n9_su((3sfu11y_8126c9b0}
 
 what is the password? 
+
+-In this challenge we are given 2 links.
+- 1st link gives the password away
+- 2nd link is where the actual problem resides
+- when we connect to 2nd link we answer few questions 
+i. password - the password we got from the 1st link
+ii. next 2 question whose answer can be found on the internet easily.
+- then a terminal opens here we explore things which are present in the directory when we list out all the files and directory we see 2 files banner and text.
+- On printing them we see the banner which was printed when we linked to this server and and a text which say keep digging.
+- then we check what are the files present in the main directory ,i.e root, there we found flag containing file and a python script is present 
+- On printing the script we found that this is the main program which is executed once connected to the server.
+- it opens the file named banner which is present in the directory we are present.
+- when we try to print the flag.txt permission to read the file is denied.
+- then if we look the hints it talks about symlinks
+symlinks
+-A symlink is a symbolic Linux/ UNIX link that points to another file or folder on your computer, or a connected file system. This is similar to a Windows shortcut.
+- ln -s /<path to file/folder to be linked> <path of the link to be created>
+
+then i tried linking banner to the flag.txt to print it but i couldn't link them so i deleted the banner and linked the flag.txt to to a symlink named banner then i tried to print it but still permission is denied.
+then i end the connection and then i reconnected and it printed the flag on its own.
