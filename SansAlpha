@@ -38,6 +38,26 @@ SansAlpha: Unknown character detected
 and gave the password we open a terminal 
 - when i tried to list files and directory it say unkown character detected
 - then i researched what other way can we use to communicate with a terminal.
+- there is something called wildcard caracters in Unix/linux.
+-In Linux, a wildcard is a special character used in the shell to represent one or more characters in file and directory names. Wildcards make it easier to perform operations on multiple files at once without typing out each name individually.
+-some of the examples are 
+1. * (Asterisk):
+  - Represents zero or more characters in a filename.
+  - Example: *.txt matches all files with a .txt extension, such as file.txt, notes.txt, etc.
+2. ? (Question Mark):
+  - Represents exactly one character.
+  - Example: file?.txt matches file1.txt, fileA.txt, but not file10.txt.
+3. [] (Square Brackets):
+  - Represents any one of the enclosed characters.
+  - Example: file[12].txt matches file1.txt and file2.txt.
+4. [!...] (Negation in Square Brackets):
+  - Matches any character not enclosed in the brackets.
+  - Example: file[!12].txt matches file3.txt, fileA.txt, but not file1.txt or file2.txt.
+5. {} (Curly Braces):
+  - Used to specify a comma-separated list of alternatives.
+  - Example: file{1,2}.txt matches file1.txt and file2.txt.
+
+-Now I use them to check all the files and directories available.
 
 SansAlpha$ ./?
 bash: ./?: No such file or directory
@@ -60,6 +80,7 @@ bash: ./blargh: Is a directory
 SansAlpha$ ./??????/*
 bash: ./blargh/flag.txt: Permission denied
 
+- Seems like i am in a directory called blargh and there is a file that cmay contain the flag 
 
 SansAlpha$ /?
 bash: /?: No such file or directory
@@ -73,9 +94,6 @@ bash: /bin: Is a directory
 SansAlpha$ /????
 bash: /boot: Is a directory
 
-SansAlpha$ /????
-bash: /boot: Is a directory
-
 SansAlpha$ /?????
 bash: /lib32: Is a directory
 
@@ -85,13 +103,16 @@ bash: /libx32: Is a directory
 SansAlpha$ /???????
 bash: /???????: No such file or directory
 
-SansAlpha$ /???/?
-/bin/[: missing ‘]’
-
-SansAlpha$ /???/???
-E: Invalid operation /bin/awk
-
--This are called wild cards 
+- Now i fond few directories present are
+  > bin
+  > boot
+  > lib32
+  > libx32
+The /bin directory in Linux is one of the essential directories in the file system hierarchy.
+It contains binary executables that are necessary for the system to function, especially in single-user mode or when other filesystems are not yet mounted.
+These binaries are generally the basic commands and utilities that are required for the system's operation, such as:
+ls, cp, mv, rm, cat, echo, bash, sh, base64, awk etc
+I assign the value "bin/base64" to a variable _1 and then use it to command the linux to give the base64 encryption of the flag.txt
 
 SansAlpha$ _1=(/???/????64)
 SansAlpha$ "${_1[0]}" */????.???
