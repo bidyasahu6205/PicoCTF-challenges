@@ -42,6 +42,7 @@ General skills
 39. Based
 40. dont-you-love-banners
 41. SansAlpha
+42. useless
 
 Web Exploitation
 1. GET aHEAD
