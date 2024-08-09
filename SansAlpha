@@ -129,6 +129,9 @@ Traceback (most recent call last):
     raise KeyboardInterrupt
 KeyboardInterrupt
 Connection to mimas.picoctf.net closed.
+
+-Then I decoded the encryption I got and got the flag.
+
 diva_bs-picoctf@webshell:~$ echo "cmV0dXJuIDAgcGljb0NURns3aDE1X211MTcxdjNyNTNfMTVfbTRkbjM1NV8xNDUyNTZlY30=" > f.txt
 diva_bs-picoctf@webshell:~$ base64 -d f.txt                                               
 return 0 picoCTF{7h15_mu171v3r53_15_m4dn355_145256ec}
