@@ -2,3 +2,69 @@ Description
 Reception of Special has been cool to say the least. That's why we made an exclusive version of Special, called Secure Comprehensive Interface for Affecting Linux Empirically Rad, or just 'Specialer'. With Specialer, we really tried to remove the distractions from using a shell. Yes, we took out spell checker because of everybody's complaining. But we think you will be excited about our new, reduced feature set for keeping you focused on what needs it the most. Please start an instance to test your very own copy of Specialer.
 Additional details will be available after launching your challenge instance.
 ssh -p 54329 ctf-player@saturn.picoctf.net. The password is 483e80d4
+
+So, I 
+diva_bs-picoctf@webshell:~$ ssh -p 49998 ctf-player@saturn.picoctf.net
+The authenticity of host '[saturn.picoctf.net]:49998 ([13.59.203.175]:49998)' can't be established.
+ED25519 key fingerprint is SHA256:lMXKIC17ONzyUJx7ZYBY5VSwoxCz20uq5/Nm+IhXKew.
+This host key is known by the following other names/addresses:
+    ~/.ssh/known_hosts:18: [hashed name]
+    ~/.ssh/known_hosts:20: [hashed name]
+    ~/.ssh/known_hosts:21: [hashed name]
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '[saturn.picoctf.net]:49998' (ED25519) to the list of known hosts.
+ctf-player@saturn.picoctf.net's password: 
+Specialer$ ls
+-bash: ls: command not found
+Specialer$ cd
+Specialer$ echo
+
+Specialer$ cat
+-bash: cat: command not found
+Specialer$ echo *
+abra ala sim
+Specialer$ pwd
+/home/ctf-player
+Specialer$ cd /
+Specialer$ echo *
+bin home lib lib64
+Specialer$ cd bin
+Specialer$ echo *
+bash
+Specialer$ cd bash
+-bash: cd: bash: Not a directory
+Specialer$ echo << bash
+> 
+> ^C
+Specialer$ echo *
+bash
+Specialer$ cd ..
+Specialer$ echo *
+bin home lib lib64
+Specialer$ cd home/ctf-player/
+Specialer$ echo *
+abra ala sim
+Specialer$ cd abra/
+Specialer$ echo *
+cadabra.txt cadaniel.txt
+Specialer$ tac   
+-bash: tac: command not found
+Specialer$ grep
+-bash: grep: command not found
+Specialer$ echo "$(</home/ctf-player/abra/cadabra.txt)"
+Nothing up my sleeve!
+Specialer$ echo "$(</home/ctf-player/abra/cadaniel.txt)"
+Yes, I did it! I really did it! I'm a true wizard!
+Specialer$ cd ..
+Specialer$ cd a
+abra/ ala/  
+Specialer$ cd a
+abra/ ala/  
+Specialer$ cd ala/
+Specialer$ echo *
+kazam.txt mode.txt
+Specialer$ echo "$(</home/ctf-player/ala/kazam.txt)"
+return 0 picoCTF{y0u_d0n7_4ppr3c1473_wh47_w3r3_d01ng_h3r3_d5ef8b71}
+Specialer$ Connection to saturn.picoctf.net closed by remote host.
+Connection to saturn.picoctf.net closed.
+diva_bs-picoctf@webshell:~$
