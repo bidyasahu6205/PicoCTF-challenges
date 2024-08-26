@@ -1,5 +1,76 @@
 Description
-Don't power users get tired of making spelling mistakes in the shell? Not anymore! Enter Special, the Spell Checked Interface for Affecting Linux. Now, every word is properly spelled and capitalized... automatically and behind-the-scenes! Be the first to test Special in beta, and feel free to tell us all about how Special streamlines every development process that you face. When your co-workers see your amazing shell interface, just tell them: That's Special (TM)
+Don't power users get tired of making spelling mistakes in the shell? Not anymore! Enter Special, the Spell Checked Interface for Affecting Linux.
+Now, every word is properly spelled and capitalized... automatically and behind-the-scenes! Be the first to test Special in beta, and feel free to tell us all about how Special streamlines every development process that you face.
+When your co-workers see your amazing shell interface, just tell them: That's Special (TM)
 Start your instance to see connection details.
 ssh -p 49787 ctf-player@saturn.picoctf.net
 The password is d8819d45
+
+In this challenge we connected to the remote server through ssh
+  syntax : ssh -p port_number user_name@server_domain_name/ip_address
+
+diva_bs-picoctf@webshell:~$ ssh -p 54842 ctf-player@saturn.picoctf.net
+The authenticity of host '[saturn.picoctf.net]:54842 ([13.59.203.175]:54842)' can't be established.
+ED25519 key fingerprint is SHA256:tJ0wuU5yBvNO/FrkHmR9iY36VJClMhKV+Hq2sxqKFmg.
+This host key is known by the following other names/addresses:
+    ~/.ssh/known_hosts:23: [hashed name]
+    ~/.ssh/known_hosts:25: [hashed name]
+    ~/.ssh/known_hosts:26: [hashed name]
+    ~/.ssh/known_hosts:27: [hashed name]
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '[saturn.picoctf.net]:54842' (ED25519) to the list of known hosts.
+ctf-player@saturn.picoctf.net's password: 
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 6.5.0-1023-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+Special$ ls
+Is 
+sh: 1: Is: not found
+Special$ pwd
+Pod 
+sh: 1: Pod: not found
+Special$ whoami
+Whom 
+sh: 1: Whom: not found
+Special$ 
+
+As you can see i couldn't use any basic commands. Then i refered the hint given i.e Experiment with different shell syntax
+Thus I researched on different kind of shell syntax
+i. Basic command syntax
+  - ls -l /home/user
+ii. Piping
+  - it takes the output from first command as input for the second command
+  - eg ls | grep "file"
+iii. Background execution 
+  - runns the command in the background
+  - ls & 
+and there is more to it you can use chatgpt or browser to find more of them
+I used the piping command syntax
+
+Special$ ls -la | find .
+Is la | find . 
+sh: 1: Is: not found
+.
+./blargh
+./blargh/flag.txt
+./.cache
+./.cache/motd.legal-displayed
+Special$ ls | cat ./blargh/flag.txt
+Is | cat ./blargh/flag.txt 
+sh: 1: Is: not found
+picoCTF{5p311ch3ck_15_7h3_w0r57_0c61d335}
