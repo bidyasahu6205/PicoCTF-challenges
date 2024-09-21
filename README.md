@@ -45,6 +45,7 @@ General skills
 42. useless
 43. Specialer
 44. special
+45. Permissions
 
 Web Exploitation
 1. GET aHEAD
