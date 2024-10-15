@@ -46,6 +46,7 @@ General skills
 43. Specialer
 44. special
 45. Permissions
+46. chrono
 
 Web Exploitation
 1. GET aHEAD
