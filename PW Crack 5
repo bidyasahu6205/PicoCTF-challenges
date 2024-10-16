@@ -1,0 +1,132 @@
+Description
+Can you crack the password to get the flag?
+Download the password checker here and you'll need the encrypted flag and the hash in the same directory too. Here's a dictionary with all possible passwords based on the password conventions we've seen so far.
+
+- We have given a python script that decode a secret flag when given the correct password
+- we have a dictionary of possible passwords which might have the password we need.
+- So, what i'm gonna do is I'll change the python script to take the dictionary and try each password one by one till it find the correct password and print the decoded flag
+- first i downloaded all the files using wget command.
+
+Diva_BS-picoctf@webshell:~$ wget https://artifacts.picoctf.net/c/32/level5.py https://artifacts.picoctf.net/c/32/level5.flag.txt.enc https://artifacts.picoctf.net/c/32/level5.hash.bin https://artifacts.picoctf.net/c/32/dictionary.txt
+--2024-10-16 06:09:04--  https://artifacts.picoctf.net/c/32/level5.py
+Resolving artifacts.picoctf.net (artifacts.picoctf.net)... 3.160.22.43, 3.160.22.128, 3.160.22.16, ...
+Connecting to artifacts.picoctf.net (artifacts.picoctf.net)|3.160.22.43|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1168 (1.1K) [application/octet-stream]
+Saving to: 'level5.py'
+
+level5.py              100%[===========================>]   1.14K  --.-KB/s    in 0s      
+
+2024-10-16 06:09:04 (393 MB/s) - 'level5.py' saved [1168/1168]
+
+--2024-10-16 06:09:04--  https://artifacts.picoctf.net/c/32/level5.flag.txt.enc
+Reusing existing connection to artifacts.picoctf.net:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 31 [application/octet-stream]
+Saving to: 'level5.flag.txt.enc'
+
+level5.flag.txt.enc    100%[===========================>]      31  --.-KB/s    in 0s      
+
+2024-10-16 06:09:04 (421 KB/s) - 'level5.flag.txt.enc' saved [31/31]
+
+--2024-10-16 06:09:04--  https://artifacts.picoctf.net/c/32/level5.hash.bin
+Reusing existing connection to artifacts.picoctf.net:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 16 [application/octet-stream]
+Saving to: 'level5.hash.bin'
+
+level5.hash.bin        100%[===========================>]      16  --.-KB/s    in 0s      
+
+2024-10-16 06:09:04 (319 KB/s) - 'level5.hash.bin' saved [16/16]
+
+--2024-10-16 06:09:04--  https://artifacts.picoctf.net/c/32/dictionary.txt
+Reusing existing connection to artifacts.picoctf.net:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 327680 (320K) [application/octet-stream]
+Saving to: 'dictionary.txt'
+
+dictionary.txt         100%[===========================>] 320.00K  --.-KB/s    in 0.005s  
+
+2024-10-16 06:09:04 (69.3 MB/s) - 'dictionary.txt' saved [327680/327680]
+
+FINISHED --2024-10-16 06:09:04--
+Total wall clock time: 0.3s
+Downloaded: 4 files, 321K in 0.005s (67.7 MB/s)
+Diva_BS-picoctf@webshell:~$ ls
+README.txt  dictionary.txt  level5.flag.txt.enc  level5.hash.bin  level5.py
+Diva_BS-picoctf@webshell:~$ cat level5.py
+import hashlib
+
+### THIS FUNCTION WILL NOT HELP YOU FIND THE FLAG --LT ########################
+def str_xor(secret, key):
+    #extend key to secret length
+    new_key = key
+    i = 0
+    while len(new_key) < len(secret):
+        new_key = new_key + key[i]
+        i = (i + 1) % len(key)        
+    return "".join([chr(ord(secret_c) ^ ord(new_key_c)) for (secret_c,new_key_c) in zip(se>
+###############################################################################
+
+flag_enc = open('level5.flag.txt.enc', 'rb').read()
+correct_pw_hash = open('level5.hash.bin', 'rb').read()
+def hash_pw(pw_str):
+    pw_bytes = bytearray()
+    pw_bytes.extend(pw_str.encode())
+    m = hashlib.md5()
+    m.update(pw_bytes)
+    return m.digest()
+def level_5_pw_check():
+    user_pw = input("Please enter correct password for flag: ")
+    user_pw_hash = hash_pw(user_pw)
+    
+    if( user_pw_hash == correct_pw_hash ):
+        print("Welcome back... your flag, user:")
+        decryption = str_xor(flag_enc.decode(), user_pw)
+        print(decryption)
+        return
+    print("That password is incorrect")
+
+level_5_pw_check()
+Diva_BS-picoctf@webshell:~$ nano level5.py
+##################################################
+- I used nano text editor to edit the python script.
+- after editing the python script
+##################################################
+Diva_BS-picoctf@webshell:~$ cat level5.py
+import hashlib
+### THIS FUNCTION WILL NOT HELP YOU FIND THE FLAG --LT ########################
+def str_xor(secret, key):
+    #extend key to secret length
+    new_key = key
+    i = 0
+    while len(new_key) < len(secret):
+        new_key = new_key + key[i]
+        i = (i + 1) % len(key)        
+    return "".join([chr(ord(secret_c) ^ ord(new_key_c)) for (secret_c,new_key_c) in zip(secret,new_key)])
+###############################################################################
+flag_enc = open('level5.flag.txt.enc', 'rb').read()
+correct_pw_hash = open('level5.hash.bin', 'rb').read()
+dictionary = open('dictionary.txt', 'r').read()  #opens the dictionary and read the file completely as a string
+dict = dictionary.split()  #I split the sentence into words and stored in a list
+def hash_pw(pw_str):
+    pw_bytes = bytearray()
+    pw_bytes.extend(pw_str.encode())
+    m = hashlib.md5()
+    m.update(pw_bytes)
+    return m.digest()
+def level_5_pw_check():
+    for p in dict:
+        user_pw = p
+        user_pw_hash = hash_pw(user_pw)
+    
+        if( user_pw_hash == correct_pw_hash ):
+            print("Welcome back... your flag, user:",p)
+            decryption = str_xor(flag_enc.decode(), user_pw)
+            print(decryption)
+            return
+
+level_5_pw_check()
+Diva_BS-picoctf@webshell:~$ python level5.py 
+Welcome back... your flag, user: 
+picoCTF{h45h_sl1ng1ng_40f26f81}
