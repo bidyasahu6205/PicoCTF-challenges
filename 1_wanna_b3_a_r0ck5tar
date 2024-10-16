@@ -1,0 +1,51 @@
+Description
+I wrote you another song. Put the flag in the picoCTF{} flag format
+
+Diva_BS-picoctf@webshell:~$ wget https://jupiter.challenges.picoctf.org/static/96904d361d61fada5bd2d13536706f9a/lyrics.txt
+--2024-10-16 09:30:11--  https://jupiter.challenges.picoctf.org/static/96904d361d61fada5bd2d13536706f9a/lyrics.txt
+Resolving jupiter.challenges.picoctf.org (jupiter.challenges.picoctf.org)... 3.131.60.8
+Connecting to jupiter.challenges.picoctf.org (jupiter.challenges.picoctf.org)|3.131.60.8|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 877 [application/octet-stream]
+Saving to: 'lyrics.txt'
+
+lyrics.txt             100%[===========================>]     877  --.-KB/s    in 0s      
+
+2024-10-16 09:30:11 (413 MB/s) - 'lyrics.txt' saved [877/877]
+
+Diva_BS-picoctf@webshell:~$ ls
+README.txt  lyrics.txt
+Diva_BS-picoctf@webshell:~$ cat lyrics.txt 
+Rocknroll is right              
+Silence is wrong                
+A guitar is a six-string        
+Tommy's been down               
+Music is a billboard-burning razzmatazz!
+Listen to the music             
+If the music is a guitar                  
+Say "Keep on rocking!"                
+Listen to the rhythm
+If the rhythm without Music is nothing
+Tommy is rockin guitar
+Shout Tommy!                    
+Music is amazing sensation 
+Jamming is awesome presence
+Scream Music!                   
+Scream Jamming!                 
+Tommy is playing rock           
+Scream Tommy!       
+They are dazzled audiences                  
+Shout it!
+Rock is electric heaven                     
+Scream it!
+Tommy is jukebox god            
+Say it!                                     
+Break it down
+Shout "Bring on the rock!"
+Else Whisper "That ain't it, Chief"                 
+Break it down
+
+take the song and decode in the old website of the rockstar code to find BONJOVI
+https://web.archive.org/web/20190522020843/https://codewithrockstar.com/online
+Put the flag in the picoCTF{} flag format
+picoCTF{BONJOVI}
