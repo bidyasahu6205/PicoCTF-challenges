@@ -108,7 +108,7 @@ def str_xor(secret, key):
 flag_enc = open('level5.flag.txt.enc', 'rb').read()
 correct_pw_hash = open('level5.hash.bin', 'rb').read()
 dictionary = open('dictionary.txt', 'r').read()  #opens the dictionary and read the file completely as a string
-dict = dictionary.split()  #I split the sentence into words and stored in a list
+dict = dictionary.split()  #I split the sentence into words and stored in a list i.e It is a list of all possible passwords
 def hash_pw(pw_str):
     pw_bytes = bytearray()
     pw_bytes.extend(pw_str.encode())
@@ -116,17 +116,19 @@ def hash_pw(pw_str):
     m.update(pw_bytes)
     return m.digest()
 def level_5_pw_check():
-    for p in dict:
+    for p in dict:    # travese through each word in the list and check for the correct password.
         user_pw = p
         user_pw_hash = hash_pw(user_pw)
     
         if( user_pw_hash == correct_pw_hash ):
-            print("Welcome back... your flag, user:",p)
+            print("Welcome back... your flag, password:",p)
             decryption = str_xor(flag_enc.decode(), user_pw)
             print(decryption)
             return
 
 level_5_pw_check()
 Diva_BS-picoctf@webshell:~$ python level5.py 
-Welcome back... your flag, user: 
+Welcome back... your flag, password: 7e5f
 picoCTF{h45h_sl1ng1ng_40f26f81}
+
+- Found the password and decoded flag.
