@@ -50,6 +50,7 @@ General skills
 47. PW Crack 5
 48. PW Crack 4
 49. 1_wanna_b3_a_r0ck5tar
+50. flag_shop
 
 Web Exploitation
 1. GET aHEAD
