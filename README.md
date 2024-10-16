@@ -49,6 +49,7 @@ General skills
 46. chrono
 47. PW Crack 5
 48. PW Crack 4
+49. 1_wanna_b3_a_r0ck5tar
 
 Web Exploitation
 1. GET aHEAD
