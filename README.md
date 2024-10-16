@@ -48,6 +48,7 @@ General skills
 45. Permissions
 46. chrono
 47. PW Crack 5
+48. PW Crack 4
 
 Web Exploitation
 1. GET aHEAD
