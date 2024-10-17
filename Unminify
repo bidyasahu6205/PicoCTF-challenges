@@ -1,0 +1,14 @@
+Description
+I don't like scrolling down to read the code of my website, so I've squished it. As a bonus, my pages load faster!
+Browse here, and find the flag!
+
+Hint
+i. Try CTRL+U / ⌘+U in your browser to view the page source. You can also add 'view-source:' before the URL, or try curl <URL> in your shell.
+ii. Minification reduces the size of code, but does not change its functionality.
+iii. What tools do developers use when working on a website? Many text editors and browsers include formatting.
+
+- I downloaded the website file using curl after reading the hint and while i was going through it I found the flag written in plain text.
+Diva_BS-picoctf@webshell:~$ curl http://titan.picoctf.net:56765/ 
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="idth=device-width,initial-scale=1"><title>picoCTF - picoGym | Unminify Challenge</title><lnk rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><style>body{font-faily:"Lucida Console",Monaco,monospace}h1,p{color:#000}</style></head><body class="picoctf{" style="margin:0"><div class="picoctf{}" style="margin:0;padding:0;background-color:#75755;display:auto;height:40%"><a class="picoctf{}" href="/"><img src="picoctf-logo-horizontalwhite.svg" alt="picoCTF logo" style="display:inline-block;width:160px;height:90px;padding-eft:30px"></a></div><center><br class="picoctf{}"><br class="picoctf{}"><div class="picoct{}" style="padding-top:30px;border-radius:3%;box-shadow:0 5px 10px #0000004d;width:50%;alin-self:center"><img class="picoctf{}" src="hero.svg" alt="flag art" style="width:150px;heiht:150px"><div class="picoctf{}" style="width:85%"><h2 class="picoctf{}">Welcome to my fla distribution website!</h2><div class="picoctf{}" style="width:70%"><p class="picoctf{}">I you're reading this, your browser has succesfully received the flag.</p><p class="picoCTFpr3tty_c0d3_ed938a7e}"></p><p class="picoctf{}">I just deliver flags, I don't know how to ead them...</p></div></div><br class="picoctf{}"></div></center></body></html>Diva_BS-pico
+
+picoCTFpr3tty_c0d3_ed938a7e}
