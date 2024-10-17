@@ -1,5 +1,6 @@
 # PicoCTF-challenges
 this repository is all about ctf solutions and things we learned from it.
+
 General skills
 1. Obedient cat
 2. Python Wrangling
@@ -61,4 +62,5 @@ Web Exploitation
 5. Bookmarklet
 6. WebDecode
 7. Some Assembly Required 1
+8. Unminify
 
