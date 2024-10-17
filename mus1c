@@ -1,3 +1,80 @@
 Description
 I wrote you a song. Put it in the picoCTF{} flag format.
 
+- First i downloaded the song using wget and then looking at it I could tell it is one of the rockstar type. 
+Diva_BS-picoctf@webshell:~$ wget https://jupiter.challenges.picoctf.org/static/c0863a3b0170d6dd176be3a595b4b75e/lyrics.txt
+--2024-10-17 09:57:37--  https://jupiter.challenges.picoctf.org/static/c0863a3b0170d6dd176be3a595b4b75e/lyrics.txt
+Resolving jupiter.challenges.picoctf.org (jupiter.challenges.picoctf.org)... 3.131.60.8
+Connecting to jupiter.challenges.picoctf.org (jupiter.challenges.picoctf.org)|3.131.60.8|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 772 [application/octet-stream]
+Saving to: 'lyrics.txt'
+
+lyrics.txt             100%[===========================>]     772  --.-KB/s    in 0s      
+
+2024-10-17 09:57:37 (291 MB/s) - 'lyrics.txt' saved [772/772]
+
+Diva_BS-picoctf@webshell:~$ ls
+README.txt  lyrics.txt
+Diva_BS-picoctf@webshell:~$ cat lyrics.txt 
+Pico's a CTFFFFFFF
+my mind is waitin
+It's waitin
+
+Put my mind of Pico into This
+my flag is not found
+put This into my flag
+put my flag into Pico
+
+
+shout Pico
+shout Pico
+shout Pico
+
+My song's something
+put Pico into This
+
+Knock This down, down, down
+put This into CTF
+
+shout CTF
+my lyric is nothing
+Put This without my song into my lyric
+Knock my lyric down, down, down
+
+shout my lyric
+
+Put my lyric into This
+Put my song with This into my lyric
+Knock my lyric down
+
+shout my lyric
+
+Build my lyric up, up ,up
+
+shout my lyric
+shout Pico
+shout It
+
+Pico CTF is fun
+security is important
+Fun is fun
+Put security with fun into Pico CTF
+Build Fun up
+shout fun times Pico CTF
+put fun times Pico CTF into my song
+
+build it up
+
+shout it
+shout it
+
+build it up, up
+shout it
+shout Pico
+
+- I tried to compile it in rockstar compiler and we got ASCII characters
+    114 114 114 111 99 107 110 114 110 48 49 49 51 114
+- then I converted it to Plain text and I got "rrrocknrn0113r"
+- then I wrapped it in the picoCTF{} flag format.
+      picoCTF{rrrocknrn0113r}
