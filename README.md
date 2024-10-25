@@ -64,4 +64,4 @@ Web Exploitation
 7. Some Assembly Required 1
 8. Unminify
 9. IntroToBurp
-
+10. Local Authority
