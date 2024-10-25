@@ -2,4 +2,32 @@ Description
 Can you get the flag?
 Go to this website and see what you can discover
 
+- Opened Burpsuit and then captured all requests sent for login
+  proxy > intercept on > open browser
+- search url 
+- click forward in intercept x2
+- login using any username and password
+- click forward x2
+- you will get a failed login
+- now check it's source pages and check the secure.js as it is where the username and password is checked.
+- you will see the username and password in clear text here
+_____________________________________________________________________________________________________________________________________________________________________________
+Secure.js
+function checkPassword(username, password)
+{
+  if( username === 'admin' && password === 'strongPassword098765' )
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+_____________________________________________________________________________________________________________________________________________________________________________
 
+- Now that we got the username and password login using these credencials
+- click forward x2
+- and you will see the flag.
+
+picoCTF{j5_15_7r4n5p4r3n7_b0c2c9cb}
