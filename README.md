@@ -65,3 +65,4 @@ Web Exploitation
 8. Unminify
 9. IntroToBurp
 10. Local Authority
+11. Inspect HTML
