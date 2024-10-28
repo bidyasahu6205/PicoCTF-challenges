@@ -1,0 +1,27 @@
+Description
+Can you get the flag?
+Go to this website and see what you can discover.
+
+go to the website right click > inspect > source > html > css > js
+
+_______________________________________________________________________________
+CSS file
+_______________________________________________________________________________
+body {
+  background-color: lightblue;
+}
+
+/*  picoCTF{1nclu51v17y_1of2_  */
+_______________________________________________________________________________
+JS file
+_______________________________________________________________________________
+
+function greetings()
+{
+  alert("This code is in a separate file!");
+}
+
+//  f7w_2of2_b8f4b022}
+
+concat the parts of the flag 
+picoCTF{1nclu51v17y_1of2_f7w_2of2_b8f4b022}
