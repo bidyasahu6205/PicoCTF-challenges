@@ -67,3 +67,4 @@ Web Exploitation
 10. Local Authority
 11. Inspect HTML
 12. Includes
+13. dont-use-client-side
