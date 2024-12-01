@@ -2,10 +2,10 @@
 this repository is all about ctf solutions and things we learned from it.
 
 General skills
-1. Obedient cat
-2. Python Wrangling
-3. wave a flag
-4. nice netcat
+1. Obedient cat  *
+2. Python Wrangling  *
+3. wave a flag  *
+4. nice netcat  *
 5. static ain't always noise
 6. Tab, Tab, Attack
 7. Super SSH
