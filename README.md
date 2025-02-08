@@ -14,7 +14,7 @@ General skills
 10. Warmed Up
 11. 2Warm
 12. Commitment Issues
-13. Time Machine
+13. Time Machine *
 14. Blame Game
 15. Collaborative Development
 16. what's a net cat?
@@ -25,7 +25,7 @@ General skills
 21. convertme.py
 22. fixme1.py
 23. fixme2.py
-24. Binary Search
+24. Binary Search *
 25. endianness
 26. binhexa
 27. ASCII Numbers
