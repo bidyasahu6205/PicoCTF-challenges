@@ -30,8 +30,8 @@ General skills
 26. binhexa
 27. ASCII Numbers
 28. repetitions
-29. Big Zip
-30. First Find
+29. Big Zip *
+30. First Find *
 31. Serpentine
 32. runme.py
 33. PW Crack 3
