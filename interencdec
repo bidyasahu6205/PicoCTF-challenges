@@ -1,0 +1,37 @@
+Description
+Can you get the real meaning from this file.
+Download the file here.
+
+bidyasahu-picoctf@webshell:~$ wget https://artifacts.picoctf.net/c_titan/1/enc_flag
+--2025-03-01 17:26:25--  https://artifacts.picoctf.net/c_titan/1/enc_flag
+Resolving artifacts.picoctf.net (artifacts.picoctf.net)... 3.160.22.128, 3.160.22.16, 3.160.22.92, ...
+Connecting to artifacts.picoctf.net (artifacts.picoctf.net)|3.160.22.128|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 73 [application/octet-stream]
+Saving to: 'enc_flag'
+
+enc_flag               100%[===========================>]      73  --.-KB/s    in 0s      
+
+2025-03-01 17:26:25 (31.4 MB/s) - 'enc_flag' saved [73/73]
+
+bidyasahu-picoctf@webshell:~$ ls
+README.txt  enc_flag
+bidyasahu-picoctf@webshell:~$ cat enc_flag 
+YidkM0JxZGtwQlRYdHFhR3g2YUhsZmF6TnFlVGwzWVROclgyeG9OakJzTURCcGZRPT0nCg==
+bidyasahu-picoctf@webshell:~$ base64 -d enc_flag 
+b'd3BqdkpBTXtqaGx6aHlfazNqeTl3YTNrX2xoNjBsMDBpfQ=='
+bidyasahu-picoctf@webshell:~$ echo "d3BqdkpBTXtqaGx6aHlfazNqeTl3YTNrX2xoNjBsMDBpfQ==" | bas
+e64 -d
+wpjvJAM{jhlzhy_k3jy9wa3k_lh60l00i}
+Then I used a site to decode this : https://www.dcode.fr/caesar-cipher
+picoCTF{caesar_d3cr9pt3d_ea60e00b}
+
+Caesar Cipher Decoder Explained
+The Caesar cipher is a simple substitution cipher where each letter in the plaintext is shifted by a fixed number of positions in the alphabet. 
+For example, with a shift of 3, A → D, B → E, C → F, etc.
+here Since wpjvJAM{...} decrypts to picoCTF{...}, let's analyze the shift:
+w → p (Shift backward by 7)
+p → i (Shift backward by 7)
+j → c (Shift backward by 7)
+v → o (Shift backward by 7)
+The pattern suggests a shift of 7 was used.
