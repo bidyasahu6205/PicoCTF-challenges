@@ -68,3 +68,6 @@ Web Exploitation
 11. Inspect HTML
 12. Includes
 13. dont-use-client-side
+
+Cryptography
+1. interencdec
