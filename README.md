@@ -9,7 +9,7 @@ General skills
 5. static ain't always noise *
 6. Tab, Tab, Attack *
 7. Super SSH *
-8. Magikarp Ground Mission
+8. Magikarp Ground Mission *
 9. Lets Warm Up
 10. Warmed Up
 11. 2Warm
