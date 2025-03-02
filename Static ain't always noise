@@ -25,8 +25,37 @@ Saving to: 'ltdis.sh'
 ltdis.sh             100%[=====================>]     785  --.-KB/s    in 0s      
 
 2024-05-07 17:04:27 (314 MB/s) - 'ltdis.sh' saved [785/785]
+bidyasahu-picoctf@webshell:~$ ls -la
+total 40
+drwxr-xr-x 3 bidyasahu-picoctf bidyasahu-picoctf  162 Mar  2 03:33 .
+drwxr-xr-x 5 root              root                83 Mar  1 17:26 ..
+-rw-r--r-- 1 bidyasahu-picoctf bidyasahu-picoctf  220 Mar  1 17:26 .bash_logout
+-rw-r--r-- 1 bidyasahu-picoctf bidyasahu-picoctf 3771 Mar  1 17:26 .bashrc
+drwxrwxr-x 3 bidyasahu-picoctf bidyasahu-picoctf   19 Mar  1 17:33 .local
+-rw-rw-r-- 1 bidyasahu-picoctf bidyasahu-picoctf    0 Mar  2 03:23 .ltdis.x86_64.txt
+-rw-r--r-- 1 bidyasahu-picoctf bidyasahu-picoctf  807 Mar  1 17:26 .profile
+-rw-rw-r-- 1 bidyasahu-picoctf bidyasahu-picoctf  167 Mar  2 03:28 .wget-hsts
+-rw-r--r-- 1 root              root              4443 Mar  2 03:22 README.txt
+-rw-rw-r-- 1 bidyasahu-picoctf bidyasahu-picoctf  785 Mar 16  2021 ltdis.sh
+-rw-rw-r-- 1 bidyasahu-picoctf bidyasahu-picoctf 8376 Mar 16  2021 static
+
+bidyasahu-picoctf@webshell:~$ bash ltdis.sh 
+Attempting disassembly of  ...
+objdump: 'a.out': No such file
+objdump: section '.text' mentioned in a -j option, but not found in any input file
+Disassembly failed!
+Usage: ltdis.sh <program-file>
+Bye!
+
+bidyasahu-picoctf@webshell:~$ bash ltdis.sh static 
+Attempting disassembly of static ...
+Disassembly successful! Available at: static.ltdis.x86_64.txt
+Ripping strings from binary with file offsets...
+Any strings found in static have been written to static.ltdis.strings.txt with file offset
+
 bidya_sahu-picoctf@webshell:~$ ls
 README.txt  ltdis.sh  static  static.ltdis.strings.txt  static.ltdis.x86_64.txt
+
 bidya_sahu-picoctf@webshell:~$ cat static.ltdis.strings.txt
     238 /lib64/ld-linux-x86-64.so.2
     361 libc.so.6
