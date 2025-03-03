@@ -16,7 +16,9 @@ the_numbers.png        100%[===========================>]  98.36K  --.-KB/s    i
 bidyasahu-picoctf@webshell:~$ ls
 README.txt  the_numbers.png
 bidyasahu-picoctf@webshell:~$ open the_numbers.png
+
 it opens a image with some number writen on it
 when you map the number with letter like
+
 1-A,2-B,....so on then you will get the flag
 PICOCTF{THENUMBERSMASON}
