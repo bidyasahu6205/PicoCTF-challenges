@@ -1,0 +1,29 @@
+Description
+Cryptography can be easy, do you know what ROT13 is? 
+cvpbPGS{abg_gbb_onq_bs_n_ceboyrz}
+
+ROT13 (Rotate by 13 places) is a simple letter substitution cipher
+that replaces each letter with the letter 13 places after it in the alphabet.
+It is a special case of the Caesar cipher with a shift of 13.
+
+How it Works:
+Since the English alphabet has 26 letters,
+applying ROT13 twice restores the original text (because 13+13 = 26).
+Only alphabetical characters are affected.
+Numbers, punctuation, and spaces remain unchanged.
+HELLO → URYYB
+
+so the flag is
+c → p, v → i, p → c, b → o
+P → C, G → T, S → F
+{ remains unchanged
+a → n, b → o, g → t, _ remains unchanged
+g → t, b → o, b → o, _ remains unchanged
+o → b, n → a, q → d, _ remains unchanged
+b → o, s → f, _ remains unchanged
+n → a, _ remains unchanged
+c → p, e → r, b → o, o → b, y → l, r → e, z → m
+} remains unchanged
+
+cvpbPGS{abg_gbb_onq_bs_n_ceboyrz} -> picoCTF{not_too_bad_of_a_problem}
+
