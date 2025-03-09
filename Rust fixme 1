@@ -1,0 +1,100 @@
+
+Description
+Have you heard of Rust? Fix the syntax errors in this Rust file to print the flag!Download the Rust code here.
+
+bidyasahu-picoctf@webshell:~$ wget https://challenge-files.picoctf.net/c_verbal_sleep/3f0e13f541928f420d9c8c96b06d4dbf7b2fa18b15adbd457108e8c80a1f5883/fixme1.tar.gz
+--2025-03-07 18:24:37--  https://challenge-files.picoctf.net/c_verbal_sleep/3f0e13f541928f420d9c8c96b06d4dbf7b2fa18b15adbd457108e8c80a1f5883/fixme1.tar.gz
+Resolving challenge-files.picoctf.net (challenge-files.picoctf.net)... 3.160.5.40, 3.160.5.64, 3.160.5.18, ...
+Connecting to challenge-files.picoctf.net (challenge-files.picoctf.net)|3.160.5.40|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1415 (1.4K) [application/octet-stream]
+Saving to: 'fixme1.tar.gz'
+
+fixme1.tar.g 100%   1.38K  --.-KB/s    in 0s      
+
+2025-03-07 18:24:37 (39.3 MB/s) - 'fixme1.tar.gz' saved [1415/1415]
+bidyasahu-picoctf@webshell:~$ ls
+README.txt  chalkboardgag.txt  fixme1.tar.gz
+bidyasahu-picoctf@webshell:~$ tar -xvzf fixme1.tar.gz
+fixme1/
+fixme1/Cargo.toml
+fixme1/Cargo.lock
+fixme1/src/
+fixme1/src/main.rs
+bidyasahu-picoctf@webshell:~$ ls
+README.txt         fixme1
+chalkboardgag.txt  fixme1.tar.gz
+
+bidyasahu-picoctf@webshell:~/fixme1$ cd src/
+bidyasahu-picoctf@webshell:~/fixme1/src$ ls -la
+total 4
+drwxr-xr-x 2 bidyasahu-picoctf bidyasahu-picoctf   29 Dec  9 19:45 .
+drwxr-xr-x 3 bidyasahu-picoctf bidyasahu-picoctf   69 Mar  7 18:27 ..
+-rw-r--r-- 1 bidyasahu-picoctf bidyasahu-picoctf 1020 Dec 16 16:48 main.rs
+bidyasahu-picoctf@webshell:~/fixme1/src$ cat main.rs 
+use xor_cryptor::XORCryptor;
+
+fn main() {
+    // Key for decryption
+    let key = String::from("CSUCKS") // How do we end statements in Rust?
+
+    // Encrypted flag values
+    let hex_values = ["41", "30", "20", "63", "4a", "45", "54", "76", "01", "1c", "7e", "59", "63", "e1", "61", "25", "7f", "5a", "60", "50", "11", "38", "1f", "3a", "60", "e9", "62", "20", "0c", "e6", "50", "d3", "35"];
+
+    // Convert the hexadecimal strings to bytes and collect them into a vector
+    let encrypted_buffer: Vec<u8> = hex_values.iter()
+        .map(|&hex| u8::from_str_radix(hex, 16).unwrap())
+        .collect();
+
+    // Create decrpytion object
+    let res = XORCryptor::new(&key);
+    if res.is_err() {
+        ret; // How do we return in rust?
+    }
+    let xrc = res.unwrap();
+
+    // Decrypt flag and print it out
+    let decrypted_buffer = xrc.decrypt_vec(encrypted_buffer);
+    println!(
+        ":?", // How do we print out a variable in the println function? 
+        String::from_utf8_lossy(&decrypted_buffer)
+    );
+}
+edit the code in vscode to get the solution 
+use xor_cryptor::XORCryptor;
+
+fn main() {
+    // Key for decryption
+    let key = String::from("CSUCKS"); // How do we end statements in Rust?
+
+    // Encrypted flag values
+    let hex_values = ["41", "30", "20", "63", "4a", "45", "54", "76", "01", "1c", "7e", "59", "63", "e1", "61", "25", "7f", "5a", "60", "50", "11", "38", "1f", "3a", "60", "e9", "62", "20", "0c", "e6", "50", "d3", "35"];
+
+    // Convert the hexadecimal strings to bytes and collect them into a vector
+    let encrypted_buffer: Vec<u8> = hex_values.iter()
+        .map(|&hex| u8::from_str_radix(hex, 16).unwrap())
+        .collect();
+
+    // Create decrpytion object
+    let res = XORCryptor::new(&key);
+    if res.is_err() {
+        return; // How do we return in rust?
+    }
+    let xrc = res.unwrap();
+
+    // Decrypt flag and print it out
+    let decrypted_buffer = xrc.decrypt_vec(encrypted_buffer);
+    println!(
+        "{}", // How do we print out a variable in the println function? 
+        String::from_utf8_lossy(&decrypted_buffer)
+    );
+}
+
+when you will run this 
+  Compiling rayon v1.10.0
+   Compiling xor_cryptor v1.2.3
+   Compiling rust_proj v0.1.0 (D:\bidya's folder\extra\fixme1)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 6.94s
+     Running `target\debug\rust_proj.exe`
+picoCTF{4r3_y0u_4_ru$t4c30n_n0w?}
+ *  Terminal will be reused by tasks, press any key to close it. 
