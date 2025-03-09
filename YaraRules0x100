@@ -1,0 +1,62 @@
+Description
+Dear Threat Intelligence Analyst,
+Quick heads up - we stumbled upon a shady executable file on one of our employee's Windows PCs. Good news: the employee didn't take the bait and flagged it to our InfoSec crew.
+Seems like this file sneaked past our Intrusion Detection Systems, indicating a fresh threat with no matching signatures in our database.
+Can you dive into this file and whip up some YARA rules? We need to make sure we catch this thing if it pops up again.
+Thanks a bunch!
+The suspicious file can be downloaded here. Unzip the archive with the password picoctf
+Once you have created the YARA rule/signature, submit your rule file as follows:
+socat -t60 - TCP:standard-pizzas.picoctf.net:58217 < sample.txt
+(In the above command, modify "sample.txt" to whatever filename you use).
+When you submit your rule, it will undergo testing with various test cases. If it successfully passes all the test cases, you'll receive your flag.
+
+YARA (Yet Another Recursive Acronym) is a tool used for malware analysis, threat hunting, and identifying patterns in files. 
+It's widely used in cybersecurity for writing rules that detect malware, based on textual and binary patterns found in files.
+
+Why Use YARA?
+- Detect malware families by writing signatures (rules).
+- Identify packed vs. unpacked malware variants.
+- Find specific API calls, strings, or structures in executables.
+- Automate malware detection in SOC (Security Operations Center) workflows.
+
+Basic YARA Rule Structure
+A YARA rule looks like this:
+rule ExampleRule {
+    meta:
+        description = "Detects Example Malware"
+        author = "YourName"
+        date = "2025-03-09"
+
+    strings:
+        $text1 = "malware" ascii
+        $text2 = "hacking_tool" wide ascii
+
+    condition:
+        any of them
+}
+
+Meta Section – Stores metadata (e.g., author, description).
+Strings Section – Defines text/binary patterns to look for.
+Condition Section – Specifies how to detect the malware (e.g., if any string appears).
+
+How to Use YARA
+Install YARA
+On Linux:
+sudo apt install yara -y
+On Windows (via Chocolatey):
+choco install yara
+
+Run a YARA Rule on a File
+yara rule_file.yar target_file.exe
+eg. yara suspicious_rule.yar suspicious_unpacked.exe
+
+Use YARA for Threat Hunting
+You can scan entire directories:
+yara -r rule_file.yar /path/to/folder/
+
+Where YARA is Used
+- Antivirus & Threat Detection (Used by VirusTotal, FireEye, etc.)
+- Malware Reverse Engineering
+- SOC & Incident Response Teams
+- Custom Threat Hunting in Enterprise Security
+
