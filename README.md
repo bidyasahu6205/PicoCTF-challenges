@@ -81,3 +81,4 @@ PICO CTF CHALLENGE 2025 (Hackathon)
 3. Rust fixme 2
 4. Rust fixme 3
 5. YaraRules0x100
+6. 
