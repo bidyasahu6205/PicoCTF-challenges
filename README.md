@@ -74,3 +74,10 @@ Cryptography
 2. The Numbers
 3. 13
 4. rsa_oracle
+
+PICO CTF CHALLENGE 2025 (Hackathon)
+1. chalkboard
+2. Rust fixme 1
+3. Rust fixme 2
+4. Rust fixme 3
+5. YaraRules0x100
