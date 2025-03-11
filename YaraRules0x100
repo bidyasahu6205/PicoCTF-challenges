@@ -457,3 +457,47 @@ FALSE NEGATIVE
 }
 it passed all false negative that means the correct mixture of them will be the one
 
+┌──(kali㉿kali)-[~/picoctf2025]
+└─$ strings -el unpacked.exe > data
+jjjjjj
+jjjj
+ntdll.dll
+(Ignore) error related to Ntdll. Falling back.
+[FATAL ERROR] CreateToolhelp32Snapshot failed.
+[FATAL ERROR] OpenProcessToken failed.
+SeDebugPrivilege
+[FATAL ERROR] LookupPrivilegeValue failed.
+[FATAL ERROR] AdjustTokenPrivileges failed.
+Please run this program as an Admin.
+[FATAL ERROR] Failed to create the Mutex.
+[ERROR] Exactly two arguments expected by the Child process. Exiting...
+Check if the program is already running.
+Error converting WChar to Char.
+No debugger was present. Exiting successfully.
+Error opening a handle to debuggerPID.
+Debugger process terminated successfully.
+Failed to terminate the debugger process.
+[FATAL ERROR]  Unable to create the child process.
+Something went wrong.
+The debugger was detected but our process wasn't able to fight it. Exiting the program.
+Our process detected the debugger and was able to fight it. Don't be surprised if the debugger crashed.
+picoCTF
+This is a fake malware. It means no harm.
+Hints:
+- To develop an effective YARA rule, find any suspicious Win32 API functions that are being used by this program.
+- Developing rules solely based on strings (excluding URLs, library function calls, etc.) is not a good idea, as it can lead to false positives.
+- Your rules should work even if this binary is packed (or unpacked).
+Good luck!
+Oops! Debugger Detected. Fake malware will try to hide itself (but not really).
+Error creating the thread. Exiting...
+&File
+iE&xit
+&Help
+h&About ...
+About Suspicious
+MS Shell Dlg
+Created by Nandan Desai
+Copyright (c) 2023
+Suspicious
+SUSPICIOUS
+
