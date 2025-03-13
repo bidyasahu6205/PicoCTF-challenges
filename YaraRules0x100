@@ -501,3 +501,33 @@ Copyright (c) 2023
 Suspicious
 SUSPICIOUS
 
+RULE 63 pass
+rule Suspicious_Malware_Detection {
+    meta:
+        author = "Your Name"
+        description = "Detects suspicious behavior related to privilege escalation, debugging, and process injection."
+        date = "2025-03-09"
+        version = "final-optimized"
+
+    strings:
+        $banner = "YaraRules0x100" wide ascii
+        $api1 = "_get_wide_winmain_command_line" wide ascii nocase
+  
+
+    condition:
+        uint16(0) == 0x5A4D and ($banner or $api1)  // Ensures it's a Windows PE file
+}
+
+┌──(kali㉿kali)-[~/picoctf2025]
+└─$ socat -t60 - TCP:standard-pizzas.picoctf.net:49182 < rule.yara 
+:::::
+
+Status: Failed
+False Negatives Check: Testcases passed!
+False Positives Check: Testcase failed. Your rule generated a false positive.
+Stats: 63 testcase(s) passed. 1 failed. 0 testcase(s) unchecked. 64 total testcases.
+Pass all the testcases to get the flag.
+
+:::::
+
+
