@@ -317,11 +317,10 @@ rule Banner_Detection
 {
     meta:
         author = "Your Name"
-        description = "Detects ASCII banner and welcome message from YaraRules0x100"
+        description = "Welcome Banner "
         date = "2025-03-09"
     
     strings:
-        // Welcome message
         $welcome = "Welcome to the YaraRules0x100 challenge!" wide ascii
 
     condition:
@@ -349,13 +348,11 @@ yara rule draft 2
 rule Final_Banner_Detection
 {
     meta:
-        author = "Your Name"
-        description = "Detects the challenge executable using the welcome banner or unique substring 'YaraRules0x100'"
+        author = "Bidya"
+        description = "substring 'YaraRules0x100'"
         date = "2025-03-09"
-        version = "1.0"
     
     strings:
-        // Unique substring expected in all variants
         $yara_sub = "YaraRules0x100" wide ascii
 
     condition:
@@ -378,21 +375,15 @@ yara rule draft 3
 rule Final_Banner_Detection
 {
     meta:
-        author = "Your Name"
+        author = "Bidya"
         description = "Detects the challenge executable via its unique banner or API/manifest tokens."
         date = "2025-03-09"
-        version = "1.3"
     
     strings:
-        // Unique banner string in both plain and wide encodings.
         $banner_plain = "YaraRules0x100"
         $banner_wide  = "YaraRules0x100" wide ascii
-        
-        // API calls that may appear in the packed variant.
         $getcmd   = "GetCommandLineW"
         $get_wide = "_get_wide_winmain_command_line"
-        
-        // Manifest token from the embedded XML.
         $manifest = "<requestedExecutionLevel level='asInvoker' uiAccess='false' />"
     
     condition:
@@ -501,7 +492,7 @@ Copyright (c) 2023
 Suspicious
 SUSPICIOUS
 
-RULE 63 pass
+
 rule Suspicious_Malware_Detection {
     meta:
         author = "Your Name"
