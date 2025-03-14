@@ -119,16 +119,7 @@ Unpacked 1 file.
 ┌──(kali㉿kali)-[~/picoctf2025]
 └─$ ls    
 suspicious.exe  suspicious.zip  unpacked.exe
-                                                                                                                                      
-┌──(kali㉿kali)-[~/picoctf2025]
-└─$ ls -la                               
-total 96
-drwxrwxr-x  2 kali kali  4096 Mar  9 06:58 .
-drwx------ 22 kali kali  4096 Mar  9 06:38 ..
--rwxr-xr-x  1 kali kali 26624 Mar  5 22:27 suspicious.exe
--rw-rw-r--  1 kali kali 16506 Mar  6 15:29 suspicious.zip
--rwxr-xr-x  1 kali kali 40960 Mar  5 22:27 unpacked.exe
-                                                                                                                                      
+                                                                                                                                                                                                                                                                            
 ┌──(kali㉿kali)-[~/picoctf2025]
 └─$ objdump -h unpacked.exe
 
