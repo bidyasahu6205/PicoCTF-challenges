@@ -10,13 +10,13 @@ General skills
 6. Tab, Tab, Attack *
 7. Super SSH *
 8. Magikarp Ground Mission *
-9. Lets Warm Up
-10. Warmed Up
-11. 2Warm
-12. Commitment Issues
+9. Lets Warm Up *
+10. Warmed Up *
+11. 2Warm *
+12. Commitment Issues *
 13. Time Machine *
-14. Blame Game
-15. Collaborative Development
+14. Blame Game *
+15. Collaborative Development *
 16. what's a net cat?
 17. strings it
 18. Bases
